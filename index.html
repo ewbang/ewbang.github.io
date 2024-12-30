@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>远程协助软件下载中心</title>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id:"KfpynTGV98bJl4lh",ck:"KfpynTGV98bJl4lh"})</script>
+	<link rel="icon" type="image/x-icon" href="./index_files/favicon.ico">
+    <style>
+        :root {
+            --primary-color: #0570fd;
+            --secondary-color: #f7ad0d;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --hover-color: #0456c8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html, body {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar, 
+        body::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+            display: none;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            scrollbar-width: none;
+        }
+
+        body {
+            -ms-overflow-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            flex: 1;
+            width: 100%;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #ff0004;
+            font-size: 16px;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .software-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+            border: 1px solid #eee;
+        }
+
+        .software-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .software-item img {
+            width: 150px;
+            height: auto;
+            margin: 0;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .software-item:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .software-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .links-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-item {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-item:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 8px 0;
+            border-top: 1px solid #ddd;
+            color: #666;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-color);
+            z-index: 1000;
+            line-height: 1.4;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer p + p {
+            margin-top: 5px;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 10px;
+                padding-bottom: 100px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .software-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>远程协助软件下载中心</h1>
+            <p class="subtitle">请按照工程师或技术的要求，点击下方图标进行下载,打开软件之后，截图软件界面发送给技术客服</p>
+        </header>
+
+        <div class="software-grid">
+            <div class="software-item">
+                <a href="https://www.teamviewer.cn/cn/download" target="_blank">
+                    <img src="./index_files/logo-teamviewer-2.svg" alt="TeamViewer" title="点击下载">
+                </a>
+            </div>
+            <div class="software-item">
+                <a href="https://www.todesk.com/download.html" target="_blank">
+                    <img src="./index_files/d6947e1.svg" alt="ToDesk" title="点击下载">
+                </a>
+            </div>
+            <div class="software-item">
+                <a href="https://sunlogin.oray.com/download" target="_blank">
+                    <img src="./index_files/ff173cc.png" alt="向日葵" title="点击下载">
+                </a>
+            </div>
+        </div>
+
+        <section class="links-section">
+            <h2 class="section-title">常用软件</h2>
+            <div class="links-grid">
+                <a href="https://www.google.cn/chrome/" class="link-item" target="_blank">chrome浏览器</a>
+                <a href="https://www.winrar.com.cn/download/winrar-x64-700scp.exe" class="link-item" target="_blank">winrar解压工具</a>
+                <a href="https://www.123865.com/s/b7tgjv-1Obf" class="link-item" target="_blank">7z解压工具</a>
+                <a href="https://pm.myapp.com/invc/xfspeed/qqpcmgr/download/QQPCDownload_keyword_310036.exe" class="link-item" target="_blank">腾讯电脑管家</a>
+                <a href="https://www.ewbang.com/websocket/index.html" class="link-item" target="_blank">在线Websocket工具</a>
+                <a href="https://www.123865.com/s/b7tgjv-9Obf" class="link-item" target="_blank">notepad++</a>
+                <a href="https://www.123865.com/s/b7tgjv-xObf" class="link-item" target="_blank">IObit Unlocker</a>
+                <a href="https://www.wenshushu.cn/box/dy1gkum3vn9/folder/e1qernwgsr4" class="link-item" target="_blank">编程语言</a>
+                <a href="http://duankou.wlphp.com/" class="link-item" target="_blank">在线端口扫描器</a>
+                <a href="https://www.wenshushu.cn/box/dy1gkum3vn9/folder/dytq1vloh5i" class="link-item" target="_blank">代理工具</a>
+                <a href="https://developer.aliyun.com/mirror/" class="link-item" target="_blank">阿里镜像源</a>
+                <a href="https://mirrors.tuna.tsinghua.edu.cn/" class="link-item" target="_blank">清华镜像源</a>
+                <a href="https://mirrors.huaweicloud.com/home" class="link-item" target="_blank">华为镜像源</a>
+                <a href="https://archive.apache.org/dist/" class="link-item" target="_blank">apache软件源</a>
+                <a href="https://googlechromelabs.github.io/chrome-for-testing/" class="link-item" target="_blank">chrome驱动大全</a>
+                <a href="https://chatgpt.com/" class="link-item" target="_blank">chatgpt</a>
+                <a href="https://claude.ai/" class="link-item" target="_blank">claude.ai</a>
+                <a href="https://tongyi.aliyun.com/" class="link-item" target="_blank">通义千问</a>
+                <a href="https://yiyan.baidu.com/" class="link-item" target="_blank">文心一言</a>
+                <a href="https://gemini.google.com/" class="link-item" target="_blank">gemini</a>
+                <a href="https://www.browserscan.net/zh/speed-test" class="link-item" target="_blank">下载网速测试</a>
+                <a href="https://www.itdog.cn/ping/" class="link-item" target="_blank">服务器延迟测试</a>
+                <a href="http://www.oldversion.com/" class="link-item" target="_blank">oldversion</a>
+                <a href="https://www.jetbrains.com/zh-cn/idea/download/other.html" class="link-item" target="_blank">jetbrains历史版本</a>
+                <a href="https://www.json.cn/" class="link-item" target="_blank">在线JSON格式化</a>
+                <a href="https://ip.900cha.com/" class="link-item" target="_blank">IP地址查询</a>
+                <a href="https://www.tuyitu.com/ps/sources/" class="link-item" target="_blank">在线PS</a>
+                <a href="http://www.mytju.com/classcode/tools/messyCodeRecover.asp" class="link-item" target="_blank">乱码恢复</a>
+                <a href="https://suijimimashengcheng.bmcx.com/" class="link-item" target="_blank">随机密码</a>
+                <a href="https://tool.lu/sql/" class="link-item" target="_blank">在线SQL美化工具</a>
+              
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>©2008-2024 免责声明:所有软件均收集自网络。</p>
+        </footer>
+    </div>
+
+</body>
+</html>
