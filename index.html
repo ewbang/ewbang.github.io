@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>远程协助软件下载中心</title>
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-    <script>LA.init({id:"KfpynTGV98bJl4lh",ck:"KfpynTGV98bJl4lh"})</script>
-	<link rel="icon" type="image/x-icon" href="./index_files/favicon.ico">
-    <link rel="stylesheet" href="./index_files/style.css" type="text/css">
+    <script>LA.init({ id: "KfpynTGV98bJl4lh", ck: "KfpynTGV98bJl4lh" })</script>
+    <link rel="icon" type="image/x-icon" href="./index_files/favicon.ico">
+    <link rel="stylesheet" href="./index_files/style.css?v=1.2" type="text/css">
+    <style>
+        /* 禁止选中内容 */
+        body {
+            user-select: none;
+        }
+    </style>
+    <script>
+        // 禁止右键点击
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault(); // 阻止默认右键菜单
+        });
+
+        // 禁止复制
+        document.addEventListener('copy', function (e) {
+            e.preventDefault(); // 阻止复制操作
+        });
+
+        // 禁止 F12 和查看源码
+        document.onkeydown = function (e) {
+            // 如果按下 F12 或者 Ctrl+Shift+I，阻止默认行为
+            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+                e.preventDefault();
+            }
+            // 如果按下 Ctrl+U，阻止默认行为
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+            }
+        };
+    </script>
 </head>
+
 <body>
-    <div class="container">
+    <div class="container" id="app">
         <div class="software-grid">
             <div class="software-item">
                 <a href="https://sunlogin.oray.com/download" target="_blank">
@@ -24,7 +55,7 @@
                 </a>
                 <p>国内用户选择</p>
             </div>
-      
+
             <div class="software-item">
                 <a href="https://www.asklink.com/download" target="_blank">
                     <img src="https://www.asklink.com/imgs/AskLink_logo.png" alt="连连控" title="点击下载">
@@ -34,61 +65,64 @@
         </div>
 
         <section class="links-section">
+            <!-- 切换按钮 -->
+            <div class="switch-buttons">
+                <button v-for="(label, index) in buttonLabels" :key="index" class="switch-button"
+                    :class="{ active: currentType === index + 1 }" @click="switchType(index + 1)">
+                    {{ label }}
+                </button>
+            </div>
+
             <div class="links-grid">
-                <a href="https://www.google.cn/chrome/" class="link-item" target="_blank">chrome浏览器</a>
-                <a href="https://www.firefox.com.cn/" class="link-item" target="_blank">Firefox浏览器 </a>
-                <a href="https://www.winrar.com.cn/download/winrar-x64-700scp.exe" class="link-item" target="_blank">winrar解压工具</a>
-                <a href="https://www.7-zip.org/" class="link-item" target="_blank">7z解压工具</a>
-                <a href="https://pm.myapp.com/invc/xfspeed/qqpcmgr/download/QQPCDownload_keyword_310036.exe" class="link-item" target="_blank">腾讯电脑管家</a>
-                <a href="https://www.huorong.cn/" class="link-item" target="_blank">火绒安全管家</a>
-                <a href="https://www.ewbang.com/websocket/index.html" class="link-item" target="_blank">在线Websocket工具</a>
-                <a href="https://www.123865.com/s/b7tgjv-zrbf" class="link-item" target="_blank">notepad++</a>
-                <a href="https://www.123865.com/s/b7tgjv-xObf" class="link-item" target="_blank">IObit Unlocker</a>
-                <a href="https://rodgersnow.lanzoul.com/i6a9S2svjy0f" class="link-item" target="_blank">搜狗五笔输入法</a>
-                <a href="https://googlechromelabs.github.io/chrome-for-testing/" class="link-item" target="_blank">chrome驱动大全</a>
-                <a href="https://www.wenshushu.cn/box/dy1gkum3vn9/folder/e1qernwgsr4" class="link-item" target="_blank">编程语言</a>
-                <a href="http://duankou.wlphp.com/" class="link-item" target="_blank">在线端口扫描器</a>
-                <a href="https://www.wenshushu.cn/box/dy1gkum3vn9/folder/dytq1vloh5i" class="link-item" target="_blank">代理工具</a>
-                <a href="https://rodgersnow.lanzoul.com/iE4Uz2svjz6h" class="link-item" target="_blank">搜狗五笔输入法</a>
-                <a href="https://developer.aliyun.com/mirror/" class="link-item" target="_blank">阿里镜像源</a>
-                <a href="https://mirrors.tuna.tsinghua.edu.cn/" class="link-item" target="_blank">清华镜像源</a>
-                <a href="https://mirrors.huaweicloud.com/home" class="link-item" target="_blank">华为镜像源</a>
-                <a href="https://mirrors.ustc.edu.cn/help/anaconda.html" class="link-item" target="_blank">中科大镜像源</a>
-                <a href="https://archive.apache.org/dist/" class="link-item" target="_blank">apache软件源</a>
-                <a href="https://chatgpt.com/" class="link-item" target="_blank">ChatGPT</a>
-                <a href="https://claude.ai/" class="link-item" target="_blank">claudeAI</a>
-                <a href="https://tongyi.aliyun.com/" class="link-item" target="_blank">通义千问</a>
-                <a href="https://chat.deepseek.com/" class="link-item" target="_blank">DeepSeek</a>
-                <a href="https://yuanbao.tencent.com/" class="link-item" target="_blank">腾讯元宝</a>
-                <a href="https://www.browserscan.net/zh/speed-test" class="link-item" target="_blank">下载网速测试</a>
-                <a href="https://www.itdog.cn/ping/" class="link-item" target="_blank">服务器延迟测试</a>
-                <a href="http://www.oldversion.com/" class="link-item" target="_blank">oldversion</a>
-                <a href="https://www.jetbrains.com/zh-cn/idea/download/other.html" class="link-item" target="_blank">jetbrains历史版本</a>
-                <a href="https://www.json.cn/" class="link-item" target="_blank">在线JSON格式化</a>
-                <a href="https://ip.900cha.com/" class="link-item" target="_blank">IP地址查询</a>
-                <a href="https://www.tuyitu.com/ps/sources/" class="link-item" target="_blank">在线PS</a>
-                <a href="http://www.mytju.com/classcode/tools/messyCodeRecover.asp" class="link-item" target="_blank">乱码恢复</a>
-                <a href="https://suijimimashengcheng.bmcx.com/" class="link-item" target="_blank">随机密码</a>
-                <a href="https://tool.lu/sql/" class="link-item" target="_blank">在线SQL美化工具</a>
-                <a href="https://mirrors.tuna.tsinghua.edu.cn/eclipse/technology/epp/downloads/release/" class="link-item" target="_blank">Eclipse</a>
-                <a href="https://maven.apache.org/download.cgi" class="link-item" target="_blank">Maven</a>
-                <a href="https://nacos.io/download/release-history/" class="link-item" target="_blank">Nacos</a>
-                <a href="https://github.com/alibaba/Sentinel/releases" class="link-item" target="_blank">Sentinel</a>
-                <a href="https://unofficial-builds.nodejs.org/download/release/" class="link-item" target="_blank">NodeJS</a>
-                <a href="https://www.nvidia.cn/drivers/lookup/" class="link-item" target="_blank">nvidia驱动</a>
-                <a href="https://developer.nvidia.com/cuda-toolkit-archive" class="link-item" target="_blank">CUDA驱动</a>
-                <a href="https://developer.nvidia.com/rdp/cudnn-archive" class="link-item" target="_blank">cudnn驱动</a>
-                <a href="https://www.asus.com.cn/support/download-center/" class="link-item" target="_blank">华硕官方驱动</a>
-                <a href="https://newsupport.lenovo.com.cn/driveDownloads_index.html" class="link-item" target="_blank">联想官方驱动</a>
-                <a href="https://www.wepe.com.cn/download.html" class="link-item" target="_blank">WinPE</a>
-                <a href="https://www.fengpe.top/" class="link-item" target="_blank">蜂鸟PE</a>
-                <a href="https://rufus.ie/zh/" class="link-item" target="_blank">rufusPE</a>
-                <a href="https://www.firpe.cn/" class="link-item" target="_blank">FirPE</a>
-                <a href="https://www.ventoy.net/cn/download.html" class="link-item" target="_blank">Ventoy</a>
-      
+                <a v-for="(item, index) in alists" :key="index" :href="item.url" class="link-item" target="_blank">
+                    {{ item.text }}
+                </a>
             </div>
         </section>
-    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    currentType: 1,
+                    alists: [],
+                    buttonLabels: [
+                        '系统综合',
+                        '效率工具',
+                        '编程开发',
+                        '人工智能',
+                        '运维相关',
+                        "文档教程"
+                    ]
+                },
+                mounted() {
+                    this.fetchData(this.currentType);
+                },
+                methods: {
+                    switchType(type) {
+                        this.currentType = type;
+                        this.fetchData(type);
+                    },
+                    fetchData(type) {
+                        fetch('data.json')
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok ' + response.statusText);
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                this.alists = data.filter(item => item.type === type);
+                            })
+                            .catch(error => {
+                                console.error('There was a problem with the fetch operation:', error);
+                            });
+                    }
+                }
+            });
+        </script>
 
 </body>
+
 </html>
