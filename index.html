@@ -66,63 +66,83 @@
 
         <section class="links-section">
             <!-- 切换按钮 -->
-            <div class="switch-buttons">
-                <button v-for="(label, index) in buttonLabels" :key="index" class="switch-button"
-                    :class="{ active: currentType === index + 1 }" @click="switchType(index + 1)">
-                    {{ label }}
-                </button>
+            <div class="switch-buttons" id="switch-buttons">
+                <button class="switch-button active" onclick="switchType(1)">系统综合</button>
+                <button class="switch-button" onclick="switchType(2)">效率工具</button>
+                <button class="switch-button" onclick="switchType(3)">编程开发</button>
+                <button class="switch-button" onclick="switchType(4)">人工智能</button>
+                <button class="switch-button" onclick="switchType(5)">运维相关</button>
+                <button class="switch-button" onclick="switchType(6)">文档教程</button>
             </div>
 
-            <div class="links-grid">
-                <a v-for="(item, index) in alists" :key="index" :href="item.url" class="link-item" target="_blank">
-                    {{ item.text }}
-                </a>
+            <div class="links-grid" id="links-grid">
+                <!-- 链接将动态插入到这里 -->
             </div>
         </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
         <script>
-            new Vue({
-                el: '#app',
-                data: {
-                    currentType: 1,
-                    alists: [],
-                    buttonLabels: [
-                        '系统综合',
-                        '效率工具',
-                        '编程开发',
-                        '人工智能',
-                        '运维相关',
-                        "文档教程"
-                    ]
-                },
-                mounted() {
-                    this.fetchData(this.currentType);
-                },
-                methods: {
-                    switchType(type) {
-                        this.currentType = type;
-                        this.fetchData(type);
-                    },
-                    fetchData(type) {
-                        fetch('data.json')
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Network response was not ok ' + response.statusText);
-                                }
-                                return response.json();
-                            })
-                            .then(data => {
-                                this.alists = data.filter(item => item.type === type);
-                            })
-                            .catch(error => {
-                                console.error('There was a problem with the fetch operation:', error);
-                            });
+            let currentType = 1;
+            const buttonLabels = [
+                '系统综合',
+                '效率工具',
+                '编程开发',
+                '人工智能',
+                '运维相关',
+                "文档教程"
+            ];
+
+            function switchType(type) {
+                currentType = type;
+                updateButtons();
+                fetchData(type);
+            }
+
+            function updateButtons() {
+                const buttons = document.querySelectorAll('#switch-buttons .switch-button');
+                buttons.forEach((button, index) => {
+                    if (index + 1 === currentType) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
                     }
-                }
+                });
+            }
+
+            function fetchData(type) {
+                fetch('data.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ' + response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const filteredData = data.filter(item => item.type === type);
+                        renderLinks(filteredData);
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+            }
+
+            function renderLinks(data) {
+                const linksGrid = document.getElementById('links-grid');
+                linksGrid.innerHTML = ''; // 清空现有内容
+                data.forEach(item => {
+                    const linkItem = document.createElement('a');
+                    linkItem.href = item.url;
+                    linkItem.className = 'link-item';
+                    linkItem.target = '_blank';
+                    linkItem.textContent = item.text;
+                    linksGrid.appendChild(linkItem);
+                });
+            }
+
+            // 初始化
+            document.addEventListener('DOMContentLoaded', function () {
+                fetchData(currentType);
             });
         </script>
-
 </body>
 
 </html>
