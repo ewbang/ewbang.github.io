@@ -1,5 +1,4 @@
 import json
-from pprint import pprint
 
 # 读取 JSON 文件
 with open('data.json', 'r', encoding="utf-8") as f:

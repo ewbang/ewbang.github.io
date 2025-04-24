@@ -1,11 +1,6 @@
 [
     {
         "type": 1,
-        "text": "代理工具",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/dytq1vloh5i"
-    },
-    {
-        "type": 1,
         "text": "在线PS",
         "url": "https://www.tuyitu.com/ps/sources/"
     },
@@ -26,6 +21,11 @@
     },
     {
         "type": 1,
+        "text": "吾爱破解",
+        "url": "https://www.52pojie.cn/"
+    },
+    {
+        "type": 1,
         "text": "WinPE",
         "url": "https://www.wepe.com.cn/download.html"
     },
@@ -33,11 +33,6 @@
         "type": 1,
         "text": "FirPE",
         "url": "https://www.firpe.cn/"
-    },
-    {
-        "type": 1,
-        "text": "7z解压工具",
-        "url": "https://www.7-zip.org/"
     },
     {
         "type": 1,
@@ -91,11 +86,6 @@
     },
     {
         "type": 1,
-        "text": "搜狗五笔输入法",
-        "url": "https://rodgersnow.lanzoul.com/iE4Uz2svjz6h"
-    },
-    {
-        "type": 1,
         "text": "服务器延迟测试",
         "url": "https://www.itdog.cn/ping/"
     },
@@ -111,6 +101,11 @@
     },
     {
         "type": 1,
+        "text": "7zip解压工具",
+        "url": "https://www.7-zip.org/"
+    },
+    {
+        "type": 1,
         "text": "nvidia驱动",
         "url": "https://www.nvidia.cn/drivers/lookup/"
     },
@@ -123,11 +118,6 @@
         "type": 1,
         "text": "notepad++",
         "url": "https://www.123865.com/s/b7tgjv-zrbf"
-    },
-    {
-        "type": 1,
-        "text": "在线SQL美化工具",
-        "url": "https://tool.lu/sql/"
     },
     {
         "type": 1,
@@ -211,11 +201,6 @@
     },
     {
         "type": 2,
-        "text": "有道翻译",
-        "url": "https://fanyi.youdao.com/"
-    },
-    {
-        "type": 2,
         "text": "QQ邮箱",
         "url": "https://mail.qq.com/"
     },
@@ -236,8 +221,13 @@
     },
     {
         "type": 2,
-        "text": "7-Zip",
-        "url": "https://rodgersnow.lanzoul.com/i4eon2u0okyb"
+        "text": "卸载工具",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/ffgpgdy8jzs"
+    },
+    {
+        "type": 2,
+        "text": "远程工具",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/ep26wcibxil"
     },
     {
         "type": 2,
@@ -253,16 +243,6 @@
         "type": 2,
         "text": "班迪录屏工具",
         "url": "https://rodgersnow.lanzoul.com/ipfz92u0mlub"
-    },
-    {
-        "type": 2,
-        "text": "启动管理工具",
-        "url": "https://rodgersnow.lanzoul.com/iWAW62u1bhli"
-    },
-    {
-        "type": 2,
-        "text": "桌面转移工具",
-        "url": "https://rodgersnow.lanzoul.com/i6cpA2u1bhqd"
     },
     {
         "type": 2,
@@ -291,11 +271,6 @@
     },
     {
         "type": 2,
-        "text": "子域名扫描工具",
-        "url": "https://tools.yum6.cn/Tools/urlblast/"
-    },
-    {
-        "type": 2,
         "text": "MSDN 下载",
         "url": "https://next.itellyou.cn/"
     },
@@ -306,18 +281,13 @@
     },
     {
         "type": 2,
+        "text": "OpenArk",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gs5405ojc3v"
+    },
+    {
+        "type": 2,
         "text": "Bandizip",
         "url": "https://rodgersnow.lanzoul.com/iClD32u0ol6j"
-    },
-    {
-        "type": 2,
-        "text": "EditPlus",
-        "url": "https://www.editplus.com/latest5.html"
-    },
-    {
-        "type": 2,
-        "text": "JSON美化工具",
-        "url": "https://www.json.cn/"
     },
     {
         "type": 2,
@@ -370,14 +340,14 @@
         "url": "https://github.com/localsend/localsend"
     },
     {
-        "type": 2,
-        "text": "Uninstall_Tool卸载工具",
-        "url": "https://rodgersnow.lanzoul.com/iOWSY2u0kagj"
-    },
-    {
         "type": 3,
         "text": "掘金",
         "url": "https://juejin.cn/"
+    },
+    {
+        "type": 3,
+        "text": "语雀",
+        "url": "https://www.yuque.com/dashboard"
     },
     {
         "type": 3,
@@ -398,6 +368,11 @@
         "type": 3,
         "text": "牛客网",
         "url": "https://www.nowcoder.com/"
+    },
+    {
+        "type": 3,
+        "text": "代理工具",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/dytq1vloh5i"
     },
     {
         "type": 3,
@@ -428,16 +403,6 @@
         "type": 3,
         "text": "清华镜像源",
         "url": "https://mirrors.tuna.tsinghua.edu.cn/"
-    },
-    {
-        "type": 3,
-        "text": "华为镜像源",
-        "url": "https://mirrors.huaweicloud.com/home"
-    },
-    {
-        "type": 3,
-        "text": "Maven",
-        "url": "https://maven.apache.org/download.cgi"
     },
     {
         "type": 3,
@@ -506,6 +471,11 @@
     },
     {
         "type": 3,
+        "text": "Homebrew",
+        "url": "https://brew.sh/zh-cn/"
+    },
+    {
+        "type": 3,
         "text": "IDEA历史版本",
         "url": "https://www.jetbrains.com/zh-cn/idea/download/other.html"
     },
@@ -531,12 +501,7 @@
     },
     {
         "type": 3,
-        "text": "MySQL官网下载",
-        "url": "https://dev.mysql.com/downloads/"
-    },
-    {
-        "type": 3,
-        "text": "neo4j下载地址",
+        "text": "Neo4j下载地址",
         "url": "https://we-yun.com/doc/neo4j/"
     },
     {
@@ -553,11 +518,6 @@
         "type": 3,
         "text": "Notepad++",
         "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases"
-    },
-    {
-        "type": 3,
-        "text": "Tomcat官网下载",
-        "url": "https://tomcat.apache.org/"
     },
     {
         "type": 3,
@@ -588,6 +548,11 @@
         "type": 3,
         "text": "redis-windows",
         "url": "https://github.com/redis-windows/redis-windows/releases"
+    },
+    {
+        "type": 3,
+        "text": "PostgreSQL下载地址",
+        "url": "https://www.enterprisedb.com/downloads/postgres-postgresql-downloads"
     },
     {
         "type": 3,
@@ -643,11 +608,6 @@
         "type": 4,
         "text": "豆包AI智能助手",
         "url": "https://www.doubao.com/chat/"
-    },
-    {
-        "type": 4,
-        "text": "gemini AI",
-        "url": "https://gemini.google.com/app"
     },
     {
         "type": 4,
@@ -731,11 +691,6 @@
     },
     {
         "type": 5,
-        "text": "SecureCRT",
-        "url": "https://www.vandyke.com/cgi-bin/releases.php?product=securecrt"
-    },
-    {
-        "type": 5,
         "text": "FinalShell",
         "url": "https://www.hostbuf.com/t/988.html"
     },
@@ -751,11 +706,6 @@
     },
     {
         "type": 5,
-        "text": "Docker Swarm",
-        "url": "https://docs.docker.com/engine/swarm/"
-    },
-    {
-        "type": 5,
         "text": "GitHub Desktop",
         "url": "https://desktop.github.com/"
     },
@@ -765,19 +715,9 @@
         "url": "https://www.docker.com/products/docker-desktop/"
     },
     {
-        "type": 5,
-        "text": "Docker Compose",
-        "url": "https://docs.docker.com/compose/"
-    },
-    {
         "type": 6,
         "text": "书栈网",
         "url": "https://www.bookstack.cn/"
-    },
-    {
-        "type": 6,
-        "text": "菜鸟教程",
-        "url": "https://www.runoob.com/"
     },
     {
         "type": 6,
@@ -793,16 +733,6 @@
         "type": 6,
         "text": "C++教程",
         "url": "https://www.runoob.com/cplusplus/cpp-tutorial.html"
-    },
-    {
-        "type": 6,
-        "text": "Lua教程",
-        "url": "https://www.runoob.com/lua/lua-tutorial.html"
-    },
-    {
-        "type": 6,
-        "text": "R语言教程",
-        "url": "https://www.runoob.com/r/r-tutorial.html"
     },
     {
         "type": 6,
@@ -831,28 +761,8 @@
     },
     {
         "type": 6,
-        "text": "Rust教程",
-        "url": "https://www.runoob.com/rust/rust-tutorial.html"
-    },
-    {
-        "type": 6,
-        "text": "Perl教程",
-        "url": "https://www.runoob.com/perl/perl-tutorial.html"
-    },
-    {
-        "type": 6,
-        "text": "Ruby教程",
-        "url": "https://www.runoob.com/ruby/ruby-tutorial.html"
-    },
-    {
-        "type": 6,
         "text": "若依开源文档",
         "url": "https://doc.ruoyi.vip/"
-    },
-    {
-        "type": 6,
-        "text": "Swift教程",
-        "url": "https://www.runoob.com/swift/swift-tutorial.html"
     },
     {
         "type": 6,
@@ -861,18 +771,8 @@
     },
     {
         "type": 6,
-        "text": "Scala教程",
-        "url": "https://www.runoob.com/scala/scala-tutorial.html"
-    },
-    {
-        "type": 6,
         "text": "Linux教程",
         "url": "https://www.runoob.com/linux/linux-tutorial.html"
-    },
-    {
-        "type": 6,
-        "text": "正则表达式教程",
-        "url": "https://www.runoob.com/regexp/regexp-tutorial.html"
     },
     {
         "type": 6,
@@ -883,11 +783,6 @@
         "type": 6,
         "text": "Python教程",
         "url": "https://www.runoob.com/python/python-tutorial.html"
-    },
-    {
-        "type": 6,
-        "text": "Kotlin教程",
-        "url": "https://www.runoob.com/kotlin/kotlin-tutorial.html"
     },
     {
         "type": 6,
@@ -936,11 +831,6 @@
     },
     {
         "type": 6,
-        "text": "vaptcha在线文档",
-        "url": "https://www.vaptcha.com/document/install.html"
-    },
-    {
-        "type": 6,
         "text": "JavaScript教程",
         "url": "https://www.runoob.com/js/js-tutorial.html"
     },
@@ -963,6 +853,11 @@
         "type": 6,
         "text": "meilisearch在线文档",
         "url": "https://www.meilisearch.com/docs"
+    },
+    {
+        "type": 6,
+        "text": "MyBatis-Plus在线文档",
+        "url": "https://baomidou.com/introduce/"
     },
     {
         "type": 6,
