@@ -111,6 +111,11 @@
     },
     {
         "type": 1,
+        "text": "pytorch下载",
+        "url": "https://pytorch.org/get-started/previous-versions/"
+    },
+    {
+        "type": 1,
         "text": "chrome浏览器",
         "url": "https://www.google.cn/chrome/"
     },
@@ -118,6 +123,11 @@
         "type": 1,
         "text": "notepad++",
         "url": "https://www.123865.com/s/b7tgjv-zrbf"
+    },
+    {
+        "type": 1,
+        "text": "AutoDL算力云",
+        "url": "https://www.autodl.com"
     },
     {
         "type": 1,
