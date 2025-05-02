@@ -421,11 +421,6 @@
     },
     {
         "type": 3,
-        "text": "微信云托管",
-        "url": "https://cloud.weixin.qq.com/"
-    },
-    {
-        "type": 3,
         "text": "Gitee",
         "url": "https://gitee.com/"
     },
@@ -438,11 +433,6 @@
         "type": 3,
         "text": "NodeJS",
         "url": "https://unofficial-builds.nodejs.org/download/release/"
-    },
-    {
-        "type": 3,
-        "text": "natapp",
-        "url": "https://natapp.cn/"
     },
     {
         "type": 3,
@@ -496,6 +486,11 @@
     },
     {
         "type": 3,
+        "text": "Anaconda3",
+        "url": "https://repo.anaconda.com/archive/"
+    },
+    {
+        "type": 3,
         "text": "apache软件源",
         "url": "https://archive.apache.org/dist/"
     },
@@ -528,6 +523,11 @@
         "type": 3,
         "text": "Notepad++",
         "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases"
+    },
+    {
+        "type": 3,
+        "text": "Miniconda3",
+        "url": "https://repo.anaconda.com/miniconda/"
     },
     {
         "type": 3,
