@@ -78,12 +78,6 @@
         "url": "https://www.asus.com.cn/support/download-center/"
     },
     {
-        "id": 14,
-        "type": 1,
-        "text": "联想官方驱动",
-        "url": "https://newsupport.lenovo.com.cn/driveDownloads_index.html"
-    },
-    {
         "id": 15,
         "type": 1,
         "text": "Ventoy",
@@ -118,6 +112,12 @@
         "type": 1,
         "text": "rufusPE",
         "url": "https://rufus.ie/zh/"
+    },
+    {
+        "id": 184,
+        "type": 1,
+        "text": "JWT在线解密",
+        "url": "https://www.box3.cn/tools/jwt.html"
     },
     {
         "id": 21,
@@ -372,6 +372,12 @@
         "url": "https://linux.do/"
     },
     {
+        "id": 180,
+        "type": 2,
+        "text": "Bandizip",
+        "url": "https://rodgersnow.lanzoul.com/iClD32u0ol6j"
+    },
+    {
         "id": 63,
         "type": 2,
         "text": "鼠大侠-鼠标连点器",
@@ -382,6 +388,12 @@
         "type": 2,
         "text": "在线cron表达式",
         "url": "https://www.pppet.net/"
+    },
+    {
+        "id": 182,
+        "type": 2,
+        "text": "FixWin修复工具",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/ghtb7c9ydic"
     },
     {
         "id": 65,
@@ -402,10 +414,28 @@
         "url": "https://sms-activate.world/cn"
     },
     {
+        "id": 179,
+        "type": 2,
+        "text": "AnyDesky远程工具",
+        "url": "https://anydesk.com.cn/zhs/downloads/"
+    },
+    {
+        "id": 183,
+        "type": 2,
+        "text": "SoftCnKiller",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/dy1g6a0ldw0"
+    },
+    {
         "id": 68,
         "type": 2,
         "text": "processon思维导图",
         "url": "https://www.processon.com/"
+    },
+    {
+        "id": 181,
+        "type": 2,
+        "text": "Windows11轻松设置",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gxyriaswj91"
     },
     {
         "id": 69,
@@ -418,12 +448,6 @@
         "type": 2,
         "text": "localsend局域网传输",
         "url": "https://github.com/localsend/localsend"
-    },
-    {
-        "id": 71,
-        "type": 3,
-        "text": "掘金",
-        "url": "https://juejin.cn/"
     },
     {
         "id": 72,
@@ -444,18 +468,6 @@
         "url": "https://cloud.tencent.com/"
     },
     {
-        "id": 75,
-        "type": 3,
-        "text": "支付宝",
-        "url": "https://global.alipay.com/"
-    },
-    {
-        "id": 76,
-        "type": 3,
-        "text": "牛客网",
-        "url": "https://www.nowcoder.com/"
-    },
-    {
         "id": 77,
         "type": 3,
         "text": "代理工具",
@@ -466,12 +478,6 @@
         "type": 3,
         "text": "编程语言",
         "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/e1qernwgsr4"
-    },
-    {
-        "id": 79,
-        "type": 3,
-        "text": "CSDN",
-        "url": "https://www.csdn.net/"
     },
     {
         "id": 80,
@@ -502,12 +508,6 @@
         "type": 3,
         "text": "Nacos",
         "url": "https://nacos.io/download/release-history/"
-    },
-    {
-        "id": 85,
-        "type": 3,
-        "text": "Gitee",
-        "url": "https://gitee.com/"
     },
     {
         "id": 86,
@@ -708,10 +708,40 @@
         "url": "https://yiyan.baidu.com/"
     },
     {
+        "id": 186,
+        "type": 4,
+        "text": "百川智能",
+        "url": "https://ying.baichuan-ai.com/chat?from=home"
+    },
+    {
+        "id": 191,
+        "type": 4,
+        "text": "文心一格",
+        "url": "https://yige.baidu.com/"
+    },
+    {
+        "id": 197,
+        "type": 4,
+        "text": "天工AI",
+        "url": "https://www.tiangong.cn/"
+    },
+    {
+        "id": 198,
+        "type": 4,
+        "text": "当贝AI",
+        "url": "https://ai.dangbei.com/chat"
+    },
+    {
         "id": 119,
         "type": 4,
         "text": "问小白AI",
         "url": "https://www.wenxiaobai.com/"
+    },
+    {
+        "id": 185,
+        "type": 4,
+        "text": "智谱大模型",
+        "url": "https://chatglm.cn/main/alltoolsdetail?lang=zh"
     },
     {
         "id": 120,
@@ -724,6 +754,24 @@
         "type": 4,
         "text": "ChatGPT",
         "url": "https://chatgpt.com/"
+    },
+    {
+        "id": 188,
+        "type": 4,
+        "text": "Mistral",
+        "url": "https://chat.mistral.ai/chat"
+    },
+    {
+        "id": 192,
+        "type": 4,
+        "text": "Kimi AI",
+        "url": "https://kimi.moonshot.cn/"
+    },
+    {
+        "id": 199,
+        "type": 4,
+        "text": "英伟达ai搜索",
+        "url": "https://build.nvidia.com/deepseek-ai/deepseek-r1"
     },
     {
         "id": 122,
@@ -742,6 +790,48 @@
         "type": 4,
         "text": "豆包AI智能助手",
         "url": "https://www.doubao.com/chat/"
+    },
+    {
+        "id": 189,
+        "type": 4,
+        "text": "trae智能编程",
+        "url": "https://www.trae.com.cn/"
+    },
+    {
+        "id": 193,
+        "type": 4,
+        "text": "通义灵码编程助手",
+        "url": "https://lingma.aliyun.com/"
+    },
+    {
+        "id": 194,
+        "type": 4,
+        "text": "文心快码编程助手",
+        "url": "https://comate.baidu.com/zh"
+    },
+    {
+        "id": 190,
+        "type": 4,
+        "text": "cursor智能编程",
+        "url": "https://www.cursor.com/"
+    },
+    {
+        "id": 196,
+        "type": 4,
+        "text": "blackboxAI",
+        "url": "https://www.blackbox.ai/"
+    },
+    {
+        "id": 187,
+        "type": 4,
+        "text": "Google Bard",
+        "url": "https://gemini.google.com/app"
+    },
+    {
+        "id": 195,
+        "type": 4,
+        "text": "copilot编程助手",
+        "url": "https://github.com/features/copilot"
     },
     {
         "id": 125,
@@ -996,6 +1086,12 @@
         "url": "https://doc.hutool.cn/pages/index/"
     },
     {
+        "id": 178,
+        "type": 6,
+        "text": "jrebel插件激活",
+        "url": "https://www.jpy.wang/page/jrebel.html"
+    },
+    {
         "id": 168,
         "type": 6,
         "text": "mybatis在线文档",
@@ -1042,41 +1138,5 @@
         "type": 6,
         "text": "MyBatis-Plus在线文档",
         "url": "https://baomidou.com/introduce/"
-    },
-    {
-        "id": 178,
-        "type": 6,
-        "text": "jrebel插件激活",
-        "url": "https://www.jpy.wang/page/jrebel.html"
-    },
-    {
-        "id": 179,
-        "type": 2,
-        "text": "AnyDesky远程工具",
-        "url": "https://anydesk.com.cn/zhs/downloads/"
-    },
-    {
-        "id": 180,
-        "type": 2,
-        "text": "Bandizip",
-        "url": "https://rodgersnow.lanzoul.com/iClD32u0ol6j"
-    },
-    {
-        "id": 181,
-        "type": 2,
-        "text": "Windows11轻松设置",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gxyriaswj91"
-    },
-    {
-        "id": 182,
-        "type": 2,
-        "text": "FixWin修复工具",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/ghtb7c9ydic"
-    },
-    {
-        "id": 183,
-        "type": 2,
-        "text": "SoftCnKiller",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/dy1g6a0ldw0"
     }
 ]

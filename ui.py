@@ -277,7 +277,7 @@ HTML_TEMPLATE = """
             </thead>
             <tbody>
                 {% for row in rows %}
-                <tr>
+                <tr data-id="{{ row[0] }}">
                     {% for cell in row %}
                         <td {% if loop.index0 == 0 %}class="id-column"{% endif %}
                             {% if columns[loop.index0] == 'url' %}class="url-column"{% endif %}>
@@ -434,7 +434,45 @@ HTML_TEMPLATE = """
 
         function deleteRecord(id) {
             if (confirm('确定要删除这条记录吗？')) {
-                window.location.href = `/delete/${id}?page={{ page }}`;
+                fetch(`/delete/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // 删除成功后移除对应的表格行
+                        const row = document.querySelector(`tr[data-id="${id}"]`);
+                        if (row) {
+                            row.remove();
+                        }
+                        // 显示成功消息
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert alert-success alert-dismissible fade show';
+                        alertDiv.innerHTML = `
+                            ${data.message}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        `;
+                        document.querySelector('.container').insertBefore(
+                            alertDiv,
+                            document.querySelector('h2')
+                        );
+                    } else {
+                        // 显示错误消息
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+                        alertDiv.innerHTML = `
+                            ${data.message}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        `;
+                        document.querySelector('.container').insertBefore(
+                            alertDiv,
+                            document.querySelector('h2')
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             }
         }
     </script>
@@ -487,18 +525,21 @@ def add():
     
     return redirect(f"/?page={page}")
 
-@app.route("/delete/<pk_value>")
+@app.route("/delete/<pk_value>", methods=["DELETE"])
 def delete(pk_value):
     """删除记录路由"""
-    page = int(request.args.get("page", 1))
     result, error = delete_row(pk_value)
     
     if result:
-        flash("删除成功", "success")
+        return jsonify({
+            "success": True,
+            "message": "删除成功"
+        })
     else:
-        flash(f"删除失败：{error}", "danger")
-    
-    return redirect(f"/?page={page}")
+        return jsonify({
+            "success": False,
+            "message": f"删除失败：{error}"
+        }), 400
 
 @app.route("/edit/<pk_value>", methods=["GET", "POST"])
 def edit(pk_value):

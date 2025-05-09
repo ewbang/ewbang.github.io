@@ -133,7 +133,26 @@
                     linkItem.href = item.url;
                     linkItem.className = 'link-item';
                     linkItem.target = '_blank';
-                    linkItem.textContent = item.text;
+                    linkItem.title=item.text;
+                    
+                    // 创建 logo div
+                    const logoDiv = document.createElement('div');
+                    logoDiv.className = 'link-logo';
+                    // 根据类型添加不同的颜色类
+                    logoDiv.classList.add(`type-${item.type}`);
+                    // 获取第一个字符作为 logo
+                    const firstChar = item.text.charAt(0);
+                    logoDiv.textContent = firstChar;
+                    
+                    // 创建文本 div
+                    const textDiv = document.createElement('div');
+                    textDiv.className = 'link-text';
+                    textDiv.textContent = item.text;
+                    
+                    // 将 logo 和文本添加到链接中
+                    linkItem.appendChild(logoDiv);
+                    linkItem.appendChild(textDiv);
+                    
                     linksGrid.appendChild(linkItem);
                 });
             }

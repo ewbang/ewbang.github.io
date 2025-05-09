@@ -137,14 +137,62 @@ body {
     text-align: center;
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.link-logo {
+    width: 32px;
+    height: 32px;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    font-weight: 600;
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* 不同类型的颜色方案 */
+.type-1 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 系统综合 - 主题蓝 */
+.type-2 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 效率工具 - 天蓝色 */
+.type-3 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 编程开发 - 青绿色 */
+.type-4 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 人工智能 - 翠绿色 */
+.type-5 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 运维相关 - 深蓝灰 */
+.type-6 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 文档教程 - 天蓝色 */
+
+.link-text {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: #2c3e50;
 }
 
 .link-item:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.link-item:hover .link-text {
+    color: white;
+}
+
+.link-item:hover .link-logo {
+    transform: scale(1.1);
+    background: white;
+    color: var(--primary-color);
+}
 
 @media (max-width: 768px) {
     .container {
