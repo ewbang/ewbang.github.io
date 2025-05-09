@@ -1,4 +1,5 @@
 @echo off
+chcp 65001
 :: 输出日志：开始添加更改
 echo 正在将所有更改添加到暂存区...
 git add .
@@ -16,7 +17,7 @@ echo 默认远程仓库（origin）推送完成。
 
 :: 输出日志：推送到指定的远程 GitHub 仓库
 echo 正在推送到指定的远程 GitHub 仓库...
-git push https://github.com/ewbang/ewbang.github.io.git
+git push git@github.com:ewbang/ewbang.github.io.git
 echo 推送到远程 GitHub 仓库完成。
 
 :: 脚本执行完毕
