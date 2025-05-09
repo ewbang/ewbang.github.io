@@ -1,11 +1,12 @@
 from flask import (
     Flask, request, render_template_string, 
-    redirect, flash, jsonify
+    redirect, flash, jsonify, make_response
 )
 import sqlite3
 import math
 from contextlib import contextmanager
 import os
+import json
 
 
 app = Flask(__name__)
@@ -233,9 +234,14 @@ HTML_TEMPLATE = """
     <h2 class="mb-4">数据记录 (第 {{ page }} 页，共 {{ total_pages }} 页，总计 {{ total_items }} 条记录)</h2>
     
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <button type="button" class="btn btn-success" onclick="showAddModal()">
-            添加新记录
-        </button>
+        <div>
+            <button type="button" class="btn btn-success" onclick="showAddModal()">
+                添加新记录
+            </button>
+            <a href="/export" class="btn btn-primary ms-2">
+                导出数据
+            </a>
+        </div>
         
         <form method="get" class="row gx-2">
             <div class="col">
@@ -521,6 +527,33 @@ def get_record(pk_value):
         columns = get_columns()
         return jsonify(dict(zip(columns, row)))
     return jsonify({"error": "记录不存在"}), 404
+
+@app.route("/export")
+def export_data():
+    """导出数据路由"""
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT * FROM {TABLE_NAME}")
+        rows = cursor.fetchall()
+        columns = get_columns()
+        
+        data = []
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            # 将type转换为数字类型
+            if 'type' in row_dict:
+                row_dict['type'] = int(row_dict['type'])
+            data.append(row_dict)
+        
+        # 格式化JSON，使用4个空格缩进
+        formatted_json = json.dumps(data, ensure_ascii=False, indent=4)
+        
+        # 直接写入文件到当前目录
+        with open('data.json', 'w', encoding='utf-8') as f:
+            f.write(formatted_json)
+        
+        flash("数据已成功导出到 data.json", "success")
+        return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
