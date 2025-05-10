@@ -2,266 +2,254 @@
     {
         "id": 1,
         "type": 1,
-        "text": "在线PS",
-        "url": "https://www.tuyitu.com/ps/sources/"
-    },
-    {
-        "id": 2,
-        "type": 1,
-        "text": "乱码恢复",
-        "url": "http://www.mytju.com/classcode/tools/messyCodeRecover.asp"
-    },
-    {
-        "id": 3,
-        "type": 1,
-        "text": "随机密码",
-        "url": "https://suijimimashengcheng.bmcx.com/"
-    },
-    {
-        "id": 4,
-        "type": 1,
-        "text": "蜂鸟PE",
-        "url": "https://www.fengpe.top/"
-    },
-    {
-        "id": 5,
-        "type": 1,
-        "text": "吾爱破解",
-        "url": "https://www.52pojie.cn/"
-    },
-    {
-        "id": 6,
-        "type": 1,
         "text": "WinPE",
         "url": "https://www.wepe.com.cn/download.html"
     },
     {
-        "id": 7,
+        "id": 2,
         "type": 1,
         "text": "FirPE",
         "url": "https://www.firpe.cn/"
     },
     {
-        "id": 8,
+        "id": 3,
         "type": 1,
-        "text": "腾讯电脑管家",
-        "url": "https://pm.myapp.com/invc/xfspeed/qqpcmgr/download/QQPCDownload_keyword_310036.exe"
+        "text": "蜂鸟PE",
+        "url": "https://www.fengpe.top/"
     },
     {
-        "id": 9,
-        "type": 1,
-        "text": "火绒安全管家",
-        "url": "https://www.huorong.cn/"
-    },
-    {
-        "id": 10,
-        "type": 1,
-        "text": "下载网速测试",
-        "url": "https://www.browserscan.net/zh/speed-test"
-    },
-    {
-        "id": 11,
-        "type": 1,
-        "text": "IP地址查询",
-        "url": "https://ip.900cha.com/"
-    },
-    {
-        "id": 12,
-        "type": 1,
-        "text": "CUDA驱动",
-        "url": "https://developer.nvidia.com/cuda-toolkit-archive"
-    },
-    {
-        "id": 13,
-        "type": 1,
-        "text": "华硕官方驱动",
-        "url": "https://www.asus.com.cn/support/download-center/"
-    },
-    {
-        "id": 15,
+        "id": 4,
         "type": 1,
         "text": "Ventoy",
         "url": "https://www.ventoy.net/cn/download.html"
     },
     {
-        "id": 16,
-        "type": 1,
-        "text": "搜狗五笔输入法",
-        "url": "https://rodgersnow.lanzoul.com/i6a9S2svjy0f"
-    },
-    {
-        "id": 17,
-        "type": 1,
-        "text": "在线端口扫描器",
-        "url": "http://duankou.wlphp.com/"
-    },
-    {
-        "id": 18,
-        "type": 1,
-        "text": "服务器延迟测试",
-        "url": "https://www.itdog.cn/ping/"
-    },
-    {
-        "id": 19,
-        "type": 1,
-        "text": "cudnn驱动",
-        "url": "https://developer.nvidia.com/rdp/cudnn-archive"
-    },
-    {
-        "id": 20,
+        "id": 5,
         "type": 1,
         "text": "rufusPE",
         "url": "https://rufus.ie/zh/"
     },
     {
-        "id": 184,
-        "type": 1,
-        "text": "JWT在线解密",
-        "url": "https://www.box3.cn/tools/jwt.html"
-    },
-    {
-        "id": 21,
-        "type": 1,
-        "text": "7zip解压工具",
-        "url": "https://www.7-zip.org/"
-    },
-    {
-        "id": 22,
+        "id": 6,
         "type": 1,
         "text": "nvidia驱动",
         "url": "https://www.nvidia.cn/drivers/lookup/"
     },
     {
-        "id": 23,
+        "id": 7,
+        "type": 1,
+        "text": "CUDA驱动",
+        "url": "https://developer.nvidia.com/cuda-toolkit-archive"
+    },
+    {
+        "id": 8,
+        "type": 1,
+        "text": "cudnn驱动",
+        "url": "https://developer.nvidia.com/rdp/cudnn-archive"
+    },
+    {
+        "id": 9,
         "type": 1,
         "text": "pytorch下载",
         "url": "https://pytorch.org/get-started/previous-versions/"
     },
     {
-        "id": 24,
+        "id": 10,
         "type": 1,
-        "text": "chrome浏览器",
+        "text": "驱动总裁",
+        "url": "https://www.sysceo.com/dc"
+    },
+    {
+        "id": 11,
+        "type": 1,
+        "text": "Google浏览器",
         "url": "https://www.google.cn/chrome/"
     },
     {
-        "id": 25,
-        "type": 1,
-        "text": "notepad++",
-        "url": "https://www.123865.com/s/b7tgjv-zrbf"
-    },
-    {
-        "id": 26,
-        "type": 1,
-        "text": "AutoDL算力云",
-        "url": "https://www.autodl.com"
-    },
-    {
-        "id": 27,
+        "id": 12,
         "type": 1,
         "text": "Firefox浏览器",
         "url": "https://www.firefox.com.cn/"
     },
     {
-        "id": 28,
+        "id": 13,
+        "type": 1,
+        "text": "Edge浏览器",
+        "url": "https://www.microsoft.com/zh-cn/edge/download"
+    },
+    {
+        "id": 15,
+        "type": 1,
+        "text": "夸克浏览器",
+        "url": "https://cn-quark.org/"
+    },
+    {
+        "id": 16,
+        "type": 1,
+        "text": "QQ浏览器",
+        "url": "https://browser.qq.com/"
+    },
+    {
+        "id": 17,
         "type": 1,
         "text": "winrar解压工具",
         "url": "https://www.winrar.com.cn/download/winrar-x64-700scp.exe"
     },
     {
-        "id": 29,
+        "id": 18,
         "type": 1,
-        "text": "chrome驱动大全",
-        "url": "https://googlechromelabs.github.io/chrome-for-testing/"
+        "text": "7zip解压工具",
+        "url": "https://www.7-zip.org/"
     },
     {
-        "id": 30,
+        "id": 19,
         "type": 1,
-        "text": "oldversion",
-        "url": "http://www.oldversion.com/"
+        "text": "Bandizip",
+        "url": "https://rodgersnow.lanzoul.com/iClD32u0ol6j"
     },
     {
-        "id": 31,
+        "id": 21,
         "type": 1,
-        "text": "everything",
-        "url": "https://rodgersnow.lanzoul.com/iNrll2u0q1za"
+        "text": "腾讯电脑管家",
+        "url": "https://pm.myapp.com/invc/xfspeed/qqpcmgr/download/QQPCDownload_keyword_310036.exe"
     },
     {
-        "id": 32,
+        "id": 22,
         "type": 1,
-        "text": "windows激活工具",
-        "url": "https://rodgersnow.lanzoul.com/iFAAD2u1bhfc"
+        "text": "火绒安全管家",
+        "url": "https://www.huorong.cn/"
     },
     {
-        "id": 33,
-        "type": 1,
-        "text": "windows禁止更新",
-        "url": "https://rodgersnow.lanzoul.com/iAMLY2u1bhob"
-    },
-    {
-        "id": 34,
-        "type": 1,
-        "text": "在线Websocket工具",
-        "url": "https://www.ewbang.com/websocket/index.html"
-    },
-    {
-        "id": 35,
-        "type": 1,
-        "text": "IObit Unlocker",
-        "url": "https://www.123865.com/s/b7tgjv-xObf"
-    },
-    {
-        "id": 36,
+        "id": 23,
         "type": 2,
         "text": "蓝奏云",
         "url": "https://up.woozooo.com/u"
     },
     {
-        "id": 37,
+        "id": 24,
+        "type": 1,
+        "text": "Windows激活脚本",
+        "url": "https://github.com/massgravel/Microsoft-Activation-Scripts?tab=readme-ov-file#download--how-to-use-it"
+    },
+    {
+        "id": 25,
         "type": 2,
         "text": "文叔叔",
         "url": "https://www.wenshushu.cn/"
     },
     {
-        "id": 38,
-        "type": 2,
-        "text": "临时邮箱",
-        "url": "https://mail.tm/zh/"
+        "id": 26,
+        "type": 1,
+        "text": "windows激活工具",
+        "url": "https://rodgersnow.lanzoul.com/iFAAD2u1bhfc"
     },
     {
-        "id": 39,
-        "type": 2,
-        "text": "免费节点",
-        "url": "https://devpn.github.io/free/"
-    },
-    {
-        "id": 40,
+        "id": 27,
         "type": 2,
         "text": "阿里云盘",
         "url": "https://www.aliyundrive.com/"
     },
     {
-        "id": 41,
+        "id": 28,
+        "type": 1,
+        "text": "windows禁止更新",
+        "url": "https://rodgersnow.lanzoul.com/iAMLY2u1bhob"
+    },
+    {
+        "id": 29,
+        "type": 1,
+        "text": "IP地址查询",
+        "url": "https://ip.900cha.com/"
+    },
+    {
+        "id": 30,
         "type": 2,
         "text": "百度网盘",
         "url": "https://pan.baidu.com/"
     },
     {
-        "id": 42,
-        "type": 2,
-        "text": "百度翻译",
-        "url": "https://fanyi.baidu.com/"
+        "id": 31,
+        "type": 1,
+        "text": "服务器延迟测试",
+        "url": "https://www.itdog.cn/ping/"
     },
     {
-        "id": 43,
+        "id": 32,
+        "type": 1,
+        "text": "在线端口扫描器",
+        "url": "http://duankou.wlphp.com/"
+    },
+    {
+        "id": 33,
+        "type": 1,
+        "text": "chrome驱动大全",
+        "url": "https://googlechromelabs.github.io/chrome-for-testing/"
+    },
+    {
+        "id": 34,
+        "type": 2,
+        "text": "115网盘",
+        "url": "https://115.com/"
+    },
+    {
+        "id": 35,
+        "type": 1,
+        "text": "FixWin修复工具",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/ghtb7c9ydic"
+    },
+    {
+        "id": 36,
         "type": 2,
         "text": "QQ邮箱",
         "url": "https://mail.qq.com/"
     },
     {
-        "id": 44,
+        "id": 37,
         "type": 2,
-        "text": "站长之家",
-        "url": "https://tool.chinaz.com/"
+        "text": "163邮箱",
+        "url": "https://mail.163.com/"
+    },
+    {
+        "id": 38,
+        "type": 2,
+        "text": "Gmail邮箱",
+        "url": "https://mail.google.com/"
+    },
+    {
+        "id": 39,
+        "type": 2,
+        "text": "Outlook邮箱",
+        "url": "https://www.microsoft.com/zh-cn/microsoft-365/outlook/web-email-login-for-outlook"
+    },
+    {
+        "id": 40,
+        "type": 2,
+        "text": "139邮箱",
+        "url": "https://mail.10086.cn/"
+    },
+    {
+        "id": 41,
+        "type": 2,
+        "text": "v2ex",
+        "url": "https://www.v2ex.com/"
+    },
+    {
+        "id": 42,
+        "type": 2,
+        "text": "LINUX DO",
+        "url": "https://linux.do/"
+    },
+    {
+        "id": 43,
+        "type": 2,
+        "text": "4414论坛",
+        "url": "https://www.4414.cn/"
+    },
+    {
+        "id": 44,
+        "type": 1,
+        "text": "OpenArk",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gs5405ojc3v"
     },
     {
         "id": 45,
@@ -270,52 +258,40 @@
         "url": "https://www.52pojie.cn/"
     },
     {
-        "id": 46,
-        "type": 2,
-        "text": "QQ互联",
-        "url": "https://connect.qq.com/"
-    },
-    {
         "id": 47,
-        "type": 2,
+        "type": 1,
         "text": "卸载工具",
         "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/ffgpgdy8jzs"
     },
     {
-        "id": 48,
-        "type": 2,
-        "text": "远程工具",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/ep26wcibxil"
-    },
-    {
         "id": 49,
-        "type": 2,
-        "text": "图吧工具箱",
-        "url": "https://www.tbtool.cn/"
+        "type": 1,
+        "text": "IObit Unlocker",
+        "url": "https://www.123865.com/s/b7tgjv-xObf"
     },
     {
         "id": 50,
         "type": 2,
-        "text": "163邮箱",
-        "url": "https://mail.163.com/"
+        "text": "远景论坛",
+        "url": "https://bbs.pcbeta.com/"
     },
     {
         "id": 51,
         "type": 2,
-        "text": "班迪录屏工具",
-        "url": "https://rodgersnow.lanzoul.com/ipfz92u0mlub"
+        "text": "百度翻译",
+        "url": "https://fanyi.baidu.com/"
     },
     {
         "id": 52,
-        "type": 2,
-        "text": "vlc播放器",
-        "url": "https://www.videolan.org/vlc/"
+        "type": 1,
+        "text": "MSDN 下载",
+        "url": "https://next.itellyou.cn/"
     },
     {
         "id": 53,
         "type": 2,
-        "text": "在线打字测试",
-        "url": "https://dazi.kukuw.com/"
+        "text": "Google翻译",
+        "url": "https://translate.google.com/?hl=zh-CN"
     },
     {
         "id": 54,
@@ -326,80 +302,56 @@
     {
         "id": 55,
         "type": 2,
-        "text": "4414论坛",
-        "url": "https://www.4414.cn/"
+        "text": "notepad++",
+        "url": "https://www.123865.com/s/b7tgjv-zrbf"
     },
     {
         "id": 56,
-        "type": 2,
+        "type": 1,
         "text": "子域名扫描工具",
         "url": "https://tools.yum6.cn/Tools/urlblast/"
     },
     {
         "id": 57,
-        "type": 2,
-        "text": "MSDN 下载",
-        "url": "https://next.itellyou.cn/"
-    },
-    {
-        "id": 58,
-        "type": 2,
-        "text": "Gmail邮箱",
-        "url": "https://mail.google.com/"
+        "type": 1,
+        "text": "站长之家",
+        "url": "https://tool.chinaz.com/"
     },
     {
         "id": 59,
-        "type": 2,
-        "text": "OpenArk",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gs5405ojc3v"
+        "type": 1,
+        "text": "vlc播放器",
+        "url": "https://www.videolan.org/vlc/"
     },
     {
         "id": 60,
-        "type": 2,
-        "text": "Bandizip",
-        "url": "https://rodgersnow.lanzoul.com/iClD32u0ol6j"
-    },
-    {
-        "id": 61,
-        "type": 2,
-        "text": "google翻译",
-        "url": "https://translate.google.cn/"
+        "type": 1,
+        "text": "图吧工具箱",
+        "url": "https://www.tbtool.cn/"
     },
     {
         "id": 62,
         "type": 2,
-        "text": "LINUX DO",
-        "url": "https://linux.do/"
-    },
-    {
-        "id": 180,
-        "type": 2,
-        "text": "Bandizip",
-        "url": "https://rodgersnow.lanzoul.com/iClD32u0ol6j"
+        "text": "everything",
+        "url": "https://rodgersnow.lanzoul.com/iNrll2u0q1za"
     },
     {
         "id": 63,
         "type": 2,
-        "text": "鼠大侠-鼠标连点器",
-        "url": "https://www.shudaxia.com/"
+        "text": "班迪录屏工具",
+        "url": "https://rodgersnow.lanzoul.com/ipfz92u0mlub"
     },
     {
         "id": 64,
         "type": 2,
-        "text": "在线cron表达式",
-        "url": "https://www.pppet.net/"
-    },
-    {
-        "id": 182,
-        "type": 2,
-        "text": "FixWin修复工具",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/ghtb7c9ydic"
+        "text": "oldversion",
+        "url": "http://www.oldversion.com/"
     },
     {
         "id": 65,
-        "type": 2,
-        "text": "Windows激活脚本",
-        "url": "https://github.com/massgravel/Microsoft-Activation-Scripts?tab=readme-ov-file#download--how-to-use-it"
+        "type": 1,
+        "text": "华硕官方驱动",
+        "url": "https://www.asus.com.cn/support/download-center/"
     },
     {
         "id": 66,
@@ -410,32 +362,14 @@
     {
         "id": 67,
         "type": 2,
-        "text": "sms-activate",
-        "url": "https://sms-activate.world/cn"
-    },
-    {
-        "id": 179,
-        "type": 2,
-        "text": "AnyDesky远程工具",
-        "url": "https://anydesk.com.cn/zhs/downloads/"
-    },
-    {
-        "id": 183,
-        "type": 2,
-        "text": "SoftCnKiller",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/dy1g6a0ldw0"
+        "text": "临时邮箱",
+        "url": "https://mail.tm/zh/"
     },
     {
         "id": 68,
         "type": 2,
-        "text": "processon思维导图",
-        "url": "https://www.processon.com/"
-    },
-    {
-        "id": 181,
-        "type": 2,
-        "text": "Windows11轻松设置",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gxyriaswj91"
+        "text": "在线Websocket工具",
+        "url": "https://wstool.js.org/"
     },
     {
         "id": 69,
@@ -452,8 +386,8 @@
     {
         "id": 72,
         "type": 3,
-        "text": "语雀",
-        "url": "https://www.yuque.com/dashboard"
+        "text": "编程语言",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/e1qernwgsr4"
     },
     {
         "id": 73,
@@ -470,86 +404,86 @@
     {
         "id": 77,
         "type": 3,
-        "text": "代理工具",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/dytq1vloh5i"
-    },
-    {
-        "id": 78,
-        "type": 3,
-        "text": "编程语言",
-        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/e1qernwgsr4"
-    },
-    {
-        "id": 80,
-        "type": 3,
-        "text": "v2ex",
-        "url": "https://www.v2ex.com/"
-    },
-    {
-        "id": 81,
-        "type": 3,
-        "text": "微信支付",
-        "url": "https://pay.weixin.qq.com/"
-    },
-    {
-        "id": 82,
-        "type": 3,
         "text": "阿里镜像源",
         "url": "https://developer.aliyun.com/mirror/"
     },
     {
-        "id": 83,
+        "id": 78,
         "type": 3,
         "text": "清华镜像源",
         "url": "https://mirrors.tuna.tsinghua.edu.cn/"
     },
     {
-        "id": 84,
-        "type": 3,
-        "text": "Nacos",
-        "url": "https://nacos.io/download/release-history/"
+        "id": 80,
+        "type": 2,
+        "text": "在线打字测试",
+        "url": "https://dazi.kukuw.com/"
     },
     {
-        "id": 86,
+        "id": 81,
         "type": 3,
         "text": "中科大镜像源",
         "url": "https://mirrors.ustc.edu.cn/help/anaconda.html"
     },
     {
-        "id": 87,
+        "id": 82,
         "type": 3,
-        "text": "NodeJS",
-        "url": "https://unofficial-builds.nodejs.org/download/release/"
+        "text": "apache软件源",
+        "url": "https://archive.apache.org/dist/"
     },
     {
-        "id": 88,
+        "id": 83,
         "type": 3,
-        "text": "GitHub",
-        "url": "https://github.com/"
+        "text": "代理工具",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/folder/dytq1vloh5i"
     },
     {
-        "id": 89,
+        "id": 84,
+        "type": 3,
+        "text": "微信支付",
+        "url": "https://pay.weixin.qq.com/"
+    },
+    {
+        "id": 86,
         "type": 3,
         "text": "微信开发平台",
         "url": "https://open.weixin.qq.com/"
     },
     {
-        "id": 90,
+        "id": 87,
         "type": 3,
-        "text": "Eclipse",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/eclipse/technology/epp/downloads/release/"
+        "text": "GitHub",
+        "url": "https://github.com/"
     },
     {
-        "id": 91,
+        "id": 88,
+        "type": 3,
+        "text": "NodeJS",
+        "url": "https://unofficial-builds.nodejs.org/download/release/"
+    },
+    {
+        "id": 89,
+        "type": 3,
+        "text": "Nacos",
+        "url": "https://nacos.io/download/release-history/"
+    },
+    {
+        "id": 90,
         "type": 3,
         "text": "JDK官网下载",
         "url": "https://www.oracle.com/java/technologies/downloads/"
     },
     {
+        "id": 91,
+        "type": 3,
+        "text": "Eclipse",
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/eclipse/technology/epp/downloads/release/"
+    },
+    {
         "id": 92,
         "type": 3,
-        "text": "SQL美化工具",
-        "url": "https://tool.lu/sql/"
+        "text": "Sentinel",
+        "url": "https://github.com/alibaba/Sentinel/releases"
     },
     {
         "id": 93,
@@ -578,20 +512,14 @@
     {
         "id": 97,
         "type": 3,
-        "text": "Sentinel",
-        "url": "https://github.com/alibaba/Sentinel/releases"
-    },
-    {
-        "id": 98,
-        "type": 3,
-        "text": "Anaconda3",
-        "url": "https://repo.anaconda.com/archive/"
+        "text": "Pycharm历史版本",
+        "url": "https://www.jetbrains.com/zh-cn/pycharm/download/other.html"
     },
     {
         "id": 99,
         "type": 3,
-        "text": "apache软件源",
-        "url": "https://archive.apache.org/dist/"
+        "text": "SQL美化工具",
+        "url": "https://tool.lu/sql/"
     },
     {
         "id": 100,
@@ -626,8 +554,8 @@
     {
         "id": 105,
         "type": 3,
-        "text": "Notepad++",
-        "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases"
+        "text": "Anaconda3",
+        "url": "https://repo.anaconda.com/archive/"
     },
     {
         "id": 106,
@@ -636,22 +564,10 @@
         "url": "https://repo.anaconda.com/miniconda/"
     },
     {
-        "id": 107,
-        "type": 3,
-        "text": "cnblogs博客园",
-        "url": "https://www.cnblogs.com/"
-    },
-    {
         "id": 108,
         "type": 3,
         "text": "leetcode编程",
         "url": "https://leetcode.cn/problemset/"
-    },
-    {
-        "id": 109,
-        "type": 3,
-        "text": "Pycharm历史版本",
-        "url": "https://www.jetbrains.com/zh-cn/pycharm/download/other.html"
     },
     {
         "id": 110,
@@ -662,14 +578,14 @@
     {
         "id": 111,
         "type": 3,
-        "text": "workbench官网下载",
-        "url": "https://dev.mysql.com/downloads/workbench/"
+        "text": "redis-windows",
+        "url": "https://github.com/redis-windows/redis-windows/releases"
     },
     {
         "id": 112,
         "type": 3,
-        "text": "redis-windows",
-        "url": "https://github.com/redis-windows/redis-windows/releases"
+        "text": "workbench官网下载",
+        "url": "https://dev.mysql.com/downloads/workbench/"
     },
     {
         "id": 113,
@@ -684,52 +600,22 @@
         "url": "https://code.visualstudio.com/Download"
     },
     {
-        "id": 115,
-        "type": 3,
-        "text": "Visual Studio 2022",
-        "url": "https://visualstudio.microsoft.com/zh-hans/downloads/"
-    },
-    {
         "id": 116,
         "type": 4,
-        "text": "通义千问",
-        "url": "https://tongyi.aliyun.com/"
+        "text": "ChatGPT",
+        "url": "https://chatgpt.com/"
     },
     {
         "id": 117,
         "type": 4,
-        "text": "腾讯元宝",
-        "url": "https://yuanbao.tencent.com/"
+        "text": "DeepSeek",
+        "url": "https://chat.deepseek.com/"
     },
     {
         "id": 118,
         "type": 4,
-        "text": "文心一言",
-        "url": "https://yiyan.baidu.com/"
-    },
-    {
-        "id": 186,
-        "type": 4,
-        "text": "百川智能",
-        "url": "https://ying.baichuan-ai.com/chat?from=home"
-    },
-    {
-        "id": 191,
-        "type": 4,
-        "text": "文心一格",
-        "url": "https://yige.baidu.com/"
-    },
-    {
-        "id": 197,
-        "type": 4,
-        "text": "天工AI",
-        "url": "https://www.tiangong.cn/"
-    },
-    {
-        "id": 198,
-        "type": 4,
-        "text": "当贝AI",
-        "url": "https://ai.dangbei.com/chat"
+        "text": "通义千问",
+        "url": "https://tongyi.aliyun.com/"
     },
     {
         "id": 119,
@@ -738,106 +624,40 @@
         "url": "https://www.wenxiaobai.com/"
     },
     {
-        "id": 185,
-        "type": 4,
-        "text": "智谱大模型",
-        "url": "https://chatglm.cn/main/alltoolsdetail?lang=zh"
-    },
-    {
         "id": 120,
-        "type": 4,
-        "text": "纳米AI搜索",
-        "url": "https://www.n.cn/"
-    },
-    {
-        "id": 121,
-        "type": 4,
-        "text": "ChatGPT",
-        "url": "https://chatgpt.com/"
-    },
-    {
-        "id": 188,
-        "type": 4,
-        "text": "Mistral",
-        "url": "https://chat.mistral.ai/chat"
-    },
-    {
-        "id": 192,
-        "type": 4,
-        "text": "Kimi AI",
-        "url": "https://kimi.moonshot.cn/"
-    },
-    {
-        "id": 199,
-        "type": 4,
-        "text": "英伟达ai搜索",
-        "url": "https://build.nvidia.com/deepseek-ai/deepseek-r1"
-    },
-    {
-        "id": 122,
         "type": 4,
         "text": "claudeAI",
         "url": "https://claude.ai/"
     },
     {
+        "id": 121,
+        "type": 4,
+        "text": "腾讯元宝",
+        "url": "https://yuanbao.tencent.com/"
+    },
+    {
+        "id": 122,
+        "type": 4,
+        "text": "Kimi AI",
+        "url": "https://kimi.moonshot.cn/"
+    },
+    {
         "id": 123,
         "type": 4,
-        "text": "DeepSeek",
-        "url": "https://chat.deepseek.com/"
+        "text": "当贝AI",
+        "url": "https://ai.dangbei.com/chat"
     },
     {
         "id": 124,
         "type": 4,
-        "text": "豆包AI智能助手",
-        "url": "https://www.doubao.com/chat/"
-    },
-    {
-        "id": 189,
-        "type": 4,
-        "text": "trae智能编程",
-        "url": "https://www.trae.com.cn/"
-    },
-    {
-        "id": 193,
-        "type": 4,
-        "text": "通义灵码编程助手",
-        "url": "https://lingma.aliyun.com/"
-    },
-    {
-        "id": 194,
-        "type": 4,
-        "text": "文心快码编程助手",
-        "url": "https://comate.baidu.com/zh"
-    },
-    {
-        "id": 190,
-        "type": 4,
-        "text": "cursor智能编程",
-        "url": "https://www.cursor.com/"
-    },
-    {
-        "id": 196,
-        "type": 4,
-        "text": "blackboxAI",
-        "url": "https://www.blackbox.ai/"
-    },
-    {
-        "id": 187,
-        "type": 4,
-        "text": "Google Bard",
-        "url": "https://gemini.google.com/app"
-    },
-    {
-        "id": 195,
-        "type": 4,
-        "text": "copilot编程助手",
-        "url": "https://github.com/features/copilot"
+        "text": "文心一言",
+        "url": "https://yiyan.baidu.com/"
     },
     {
         "id": 125,
         "type": 4,
-        "text": "codegeex编程助手",
-        "url": "https://codegeex.cn/"
+        "text": "Google Bard",
+        "url": "https://gemini.google.com/app"
     },
     {
         "id": 126,
@@ -848,32 +668,32 @@
     {
         "id": 127,
         "type": 5,
-        "text": "Xftp",
-        "url": "https://www.xshell.com/en/xftp/"
+        "text": "GitLab",
+        "url": "https://gitlab.com/"
     },
     {
         "id": 128,
         "type": 5,
-        "text": "小皮面板",
-        "url": "https://www.xp.cn/"
+        "text": "Xshell",
+        "url": "https://www.xshell.com/en/xshell-download/"
     },
     {
         "id": 129,
         "type": 5,
-        "text": "宝塔面板",
-        "url": "https://www.bt.cn/"
+        "text": "Xftp",
+        "url": "https://www.xshell.com/en/xftp/"
     },
     {
         "id": 130,
         "type": 5,
-        "text": "nmap",
-        "url": "https://nmap.org/download"
+        "text": "Xmanager",
+        "url": "https://www.xshell.com/en/xmanager/"
     },
     {
         "id": 131,
         "type": 5,
-        "text": "WSL2",
-        "url": "https://learn.microsoft.com/en-us/windows/wsl/install"
+        "text": "mobaxterm",
+        "url": "https://mobaxterm.mobatek.net/download.html"
     },
     {
         "id": 132,
@@ -884,26 +704,26 @@
     {
         "id": 133,
         "type": 5,
-        "text": "飞牛私有云",
-        "url": "https://www.fnnas.com/download"
+        "text": "FinalShell",
+        "url": "https://www.hostbuf.com/t/988.html"
     },
     {
         "id": 134,
         "type": 5,
-        "text": "Xshell",
-        "url": "https://www.xshell.com/en/xshell-download/"
+        "text": "小皮面板",
+        "url": "https://www.xp.cn/"
     },
     {
         "id": 135,
         "type": 5,
-        "text": "GitLab",
-        "url": "https://gitlab.com/"
+        "text": "1panel面板",
+        "url": "https://1panel.cn/"
     },
     {
         "id": 136,
         "type": 5,
-        "text": "Docker",
-        "url": "https://www.docker.com/"
+        "text": "宝塔面板",
+        "url": "https://www.bt.cn/"
     },
     {
         "id": 137,
@@ -914,32 +734,26 @@
     {
         "id": 138,
         "type": 5,
-        "text": "Xmanager",
-        "url": "https://www.xshell.com/en/xmanager/"
+        "text": "nmap",
+        "url": "https://nmap.org/download"
     },
     {
         "id": 139,
         "type": 5,
-        "text": "1panel面板",
-        "url": "https://1panel.cn/"
-    },
-    {
-        "id": 140,
-        "type": 5,
-        "text": "mobaxterm",
-        "url": "https://mobaxterm.mobatek.net/download.html"
+        "text": "Docker",
+        "url": "https://www.docker.com/"
     },
     {
         "id": 141,
         "type": 5,
-        "text": "FinalShell",
-        "url": "https://www.hostbuf.com/t/988.html"
+        "text": "kubernetes",
+        "url": "https://kubernetes.io/"
     },
     {
         "id": 142,
         "type": 5,
-        "text": "kubernetes",
-        "url": "https://kubernetes.io/"
+        "text": "飞牛私有云",
+        "url": "https://www.fnnas.com/download"
     },
     {
         "id": 143,
@@ -968,56 +782,56 @@
     {
         "id": 147,
         "type": 6,
-        "text": "Go教程",
-        "url": "https://www.runoob.com/go/go-tutorial.html"
+        "text": "C语言中文网",
+        "url": "https://c.biancheng.net/"
     },
     {
         "id": 148,
-        "type": 6,
-        "text": "C#教程",
-        "url": "https://www.runoob.com/csharp/csharp-tutorial.html"
-    },
-    {
-        "id": 149,
         "type": 6,
         "text": "C++教程",
         "url": "https://www.runoob.com/cplusplus/cpp-tutorial.html"
     },
     {
+        "id": 149,
+        "type": 6,
+        "text": "C#教程",
+        "url": "https://www.runoob.com/csharp/csharp-tutorial.html"
+    },
+    {
         "id": 150,
-        "type": 6,
-        "text": "PHP教程",
-        "url": "https://www.runoob.com/php/php-tutorial.html"
-    },
-    {
-        "id": 152,
-        "type": 6,
-        "text": "Git教程",
-        "url": "https://www.runoob.com/git/git-tutorial.html"
-    },
-    {
-        "id": 153,
-        "type": 6,
-        "text": "C语言中文网",
-        "url": "https://c.biancheng.net/"
-    },
-    {
-        "id": 154,
         "type": 6,
         "text": "Java教程",
         "url": "https://www.runoob.com/java/java-tutorial.html"
     },
     {
+        "id": 152,
+        "type": 6,
+        "text": "Python教程",
+        "url": "https://www.runoob.com/python/python-tutorial.html"
+    },
+    {
+        "id": 153,
+        "type": 6,
+        "text": "Go教程",
+        "url": "https://www.runoob.com/go/go-tutorial.html"
+    },
+    {
+        "id": 154,
+        "type": 6,
+        "text": "PHP教程",
+        "url": "https://www.runoob.com/php/php-tutorial.html"
+    },
+    {
         "id": 155,
         "type": 6,
-        "text": "若依开源文档",
-        "url": "https://doc.ruoyi.vip/"
+        "text": "React教程",
+        "url": "https://www.runoob.com/react/react-tutorial.html"
     },
     {
         "id": 156,
         "type": 6,
-        "text": "React教程",
-        "url": "https://www.runoob.com/react/react-tutorial.html"
+        "text": "Git教程",
+        "url": "https://www.runoob.com/git/git-tutorial.html"
     },
     {
         "id": 157,
@@ -1034,14 +848,14 @@
     {
         "id": 159,
         "type": 6,
-        "text": "Python教程",
-        "url": "https://www.runoob.com/python/python-tutorial.html"
+        "text": "Vue.js教程",
+        "url": "https://www.runoob.com/vue2/vue-tutorial.html"
     },
     {
         "id": 160,
         "type": 6,
-        "text": "Vue.js教程",
-        "url": "https://www.runoob.com/vue2/vue-tutorial.html"
+        "text": "Angular教程",
+        "url": "https://www.runoob.com/angularjs/angularjs-tutorial.html"
     },
     {
         "id": 161,
@@ -1058,14 +872,14 @@
     {
         "id": 163,
         "type": 6,
-        "text": "Angular教程",
-        "url": "https://www.runoob.com/angularjs/angularjs-tutorial.html"
+        "text": "Node.js教程",
+        "url": "https://www.runoob.com/nodejs/nodejs-tutorial.html"
     },
     {
         "id": 164,
         "type": 6,
-        "text": "Node.js教程",
-        "url": "https://www.runoob.com/nodejs/nodejs-tutorial.html"
+        "text": "若依开源文档",
+        "url": "https://doc.ruoyi.vip/"
     },
     {
         "id": 165,
@@ -1084,12 +898,6 @@
         "type": 6,
         "text": "hutool在线文档",
         "url": "https://doc.hutool.cn/pages/index/"
-    },
-    {
-        "id": 178,
-        "type": 6,
-        "text": "jrebel插件激活",
-        "url": "https://www.jpy.wang/page/jrebel.html"
     },
     {
         "id": 168,
@@ -1138,5 +946,197 @@
         "type": 6,
         "text": "MyBatis-Plus在线文档",
         "url": "https://baomidou.com/introduce/"
+    },
+    {
+        "id": 178,
+        "type": 6,
+        "text": "jrebel插件激活",
+        "url": "https://www.jpy.wang/page/jrebel.html"
+    },
+    {
+        "id": 179,
+        "type": 2,
+        "text": "AnyDesky远程工具",
+        "url": "https://anydesk.com.cn/zhs/downloads/"
+    },
+    {
+        "id": 181,
+        "type": 2,
+        "text": "Windows11轻松设置",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/gxyriaswj91"
+    },
+    {
+        "id": 182,
+        "type": 1,
+        "text": "下载网速测试",
+        "url": "https://www.browserscan.net/zh/speed-test"
+    },
+    {
+        "id": 183,
+        "type": 2,
+        "text": "SoftCnKiller",
+        "url": "https://www.wenshushu.cn/box/dy1gkum3vn9/file/dy1g6a0ldw0"
+    },
+    {
+        "id": 184,
+        "type": 2,
+        "text": "JWT在线解密",
+        "url": "https://www.box3.cn/tools/jwt.html"
+    },
+    {
+        "id": 185,
+        "type": 4,
+        "text": "天工AI",
+        "url": "https://www.tiangong.cn/"
+    },
+    {
+        "id": 186,
+        "type": 4,
+        "text": "blackboxAI",
+        "url": "https://www.blackbox.ai/"
+    },
+    {
+        "id": 187,
+        "type": 4,
+        "text": "文心快码编程助手",
+        "url": "https://comate.baidu.com/zh"
+    },
+    {
+        "id": 188,
+        "type": 4,
+        "text": "豆包AI智能助手",
+        "url": "https://www.doubao.com/chat/"
+    },
+    {
+        "id": 189,
+        "type": 4,
+        "text": "cursor编程助手",
+        "url": "https://www.cursor.com/"
+    },
+    {
+        "id": 190,
+        "type": 4,
+        "text": "通义灵码编程助手",
+        "url": "https://lingma.aliyun.com/"
+    },
+    {
+        "id": 191,
+        "type": 4,
+        "text": "copilot编程助手",
+        "url": "https://github.com/features/copilot"
+    },
+    {
+        "id": 192,
+        "type": 4,
+        "text": "codegeex编程助手",
+        "url": "https://codegeex.cn/"
+    },
+    {
+        "id": 193,
+        "type": 4,
+        "text": "trae智能编程",
+        "url": "https://www.trae.com.cn/"
+    },
+    {
+        "id": 194,
+        "type": 4,
+        "text": "百川智能",
+        "url": "https://ying.baichuan-ai.com/chat?from=home"
+    },
+    {
+        "id": 195,
+        "type": 4,
+        "text": "Mistral",
+        "url": "https://chat.mistral.ai/chat"
+    },
+    {
+        "id": 196,
+        "type": 4,
+        "text": "智谱大模型",
+        "url": "https://chatglm.cn/main/alltoolsdetail?lang=zh"
+    },
+    {
+        "id": 197,
+        "type": 4,
+        "text": "文心一格",
+        "url": "https://yige.baidu.com/"
+    },
+    {
+        "id": 198,
+        "type": 4,
+        "text": "纳米AI搜索",
+        "url": "https://www.n.cn/"
+    },
+    {
+        "id": 199,
+        "type": 4,
+        "text": "英伟达ai搜索",
+        "url": "https://build.nvidia.com/deepseek-ai/deepseek-r1"
+    },
+    {
+        "id": 200,
+        "type": 5,
+        "text": "AutoDL算力云",
+        "url": "https://www.autodl.com"
+    },
+    {
+        "id": 201,
+        "type": 1,
+        "text": "搜狗拼音输入法",
+        "url": "https://shurufa.sogou.com/"
+    },
+    {
+        "id": 202,
+        "type": 2,
+        "text": "在线PS",
+        "url": "https://www.tuyitu.com/ps/sources/"
+    },
+    {
+        "id": 203,
+        "type": 2,
+        "text": "随机密码",
+        "url": "https://suijimimashengcheng.bmcx.com/"
+    },
+    {
+        "id": 204,
+        "type": 2,
+        "text": "乱码恢复",
+        "url": "http://www.mytju.com/classcode/tools/messyCodeRecover.asp"
+    },
+    {
+        "id": 205,
+        "type": 1,
+        "text": "搜狗五笔输入法",
+        "url": "https://rodgersnow.lanzoul.com/i6a9S2svjy0f"
+    },
+    {
+        "id": 206,
+        "type": 2,
+        "text": "sms-activate",
+        "url": "https://sms-activate.world/cn"
+    },
+    {
+        "id": 207,
+        "type": 2,
+        "text": "鼠大侠-鼠标连点器",
+        "url": "https://www.shudaxia.com/"
+    },
+    {
+        "id": 208,
+        "type": 2,
+        "text": "免费节点",
+        "url": "https://devpn.github.io/free/"
+    },
+    {
+        "id": 209,
+        "type": 2,
+        "text": "在线cron表达式",
+        "url": "https://www.pppet.net/"
+    },
+    {
+        "id": 210,
+        "type": 2,
+        "text": "processon思维导图",
+        "url": "https://www.processon.com/"
     }
 ]

@@ -14,7 +14,7 @@ app.secret_key = os.urandom(24)
 
 DB_NAME = "test.db"
 TABLE_NAME = "ewb_dh_data"
-ITEMS_PER_PAGE = 15
+ITEMS_PER_PAGE = 40
 
 # 类型映射字典
 TYPE_MAPPING = {
@@ -214,9 +214,23 @@ HTML_TEMPLATE = """
     <style>
         .table-responsive { overflow-x: auto; }
         .modal-lg { max-width: 800px; }
-        .id-column { width: 80px; }
-        th, td { text-align: center; }
-        .url-column { text-align: left; }
+        .id-column { width: 80px; min-width: 80px; }
+        .url-column { text-align: left; min-width: 200px; }
+        .type-column { width: 120px; min-width: 120px; }
+        .name-column { width: 150px; min-width: 150px; }
+        .desc-column { width: 200px; min-width: 200px; }
+        th, td { 
+            text-align: center; 
+            vertical-align: middle;
+            white-space: nowrap;
+            padding: 8px;
+        }
+        tr.dragging { opacity: 0.5; background-color: #f8f9fa; }
+        tr.drag-over { border-top: 2px solid #007bff; }
+        .drag-handle { cursor: move; color: #999; padding: 0 5px; }
+        .drag-handle:hover { color: #666; }
+        .drag-handle::before { content: "⋮⋮"; }
+        .table { table-layout: fixed; }
     </style>
 </head>
 <body class="container mt-4">
@@ -270,20 +284,32 @@ HTML_TEMPLATE = """
             <thead class="table-dark">
                 <tr>
                     {% for col in columns %}
-                        <th {% if col == 'id' %}class="id-column"{% endif %}>{{ col }}</th>
+                        <th {% if col == 'id' %}class="id-column"{% endif %}
+                            {% if col == 'url' %}class="url-column"{% endif %}
+                            {% if col == 'type' %}class="type-column"{% endif %}
+                            {% if col == 'name' %}class="name-column"{% endif %}
+                            {% if col == 'desc' %}class="desc-column"{% endif %}>
+                            {{ col }}
+                        </th>
                     {% endfor %}
-                    <th>操作</th>
+                    <th style="width: 120px;">操作</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in rows %}
                 <tr data-id="{{ row[0] }}">
-                    {% for cell in row %}
-                        <td {% if loop.index0 == 0 %}class="id-column"{% endif %}
-                            {% if columns[loop.index0] == 'url' %}class="url-column"{% endif %}>
-                            {% if columns[loop.index0] == 'url' %}
+                    <td class="id-column">
+                        <span class="drag-handle"></span>
+                        {{ row[0] }}
+                    </td>
+                    {% for cell in row[1:] %}
+                        <td {% if columns[loop.index0 + 1] == 'url' %}class="url-column"{% endif %}
+                            {% if columns[loop.index0 + 1] == 'type' %}class="type-column"{% endif %}
+                            {% if columns[loop.index0 + 1] == 'name' %}class="name-column"{% endif %}
+                            {% if columns[loop.index0 + 1] == 'desc' %}class="desc-column"{% endif %}>
+                            {% if columns[loop.index0 + 1] == 'url' %}
                                 <a href="{{ cell }}" target="_blank" rel="noopener noreferrer">{{ cell }}</a>
-                            {% elif columns[loop.index0] == 'type' %}
+                            {% elif columns[loop.index0 + 1] == 'type' %}
                                 {{ type_mapping.get(cell, cell) }}
                             {% else %}
                                 {{ cell }}
@@ -291,10 +317,8 @@ HTML_TEMPLATE = """
                         </td>
                     {% endfor %}
                     <td>
-                        <button class="btn btn-sm btn-warning" 
-                                onclick="editRecord('{{ row[0] }}')">编辑</button>
-                        <button class="btn btn-sm btn-danger" 
-                                onclick="deleteRecord('{{ row[0] }}')">删除</button>
+                        <button class="btn btn-sm btn-warning" onclick="editRecord('{{ row[0] }}')">编辑</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteRecord('{{ row[0] }}')">删除</button>
                     </td>
                 </tr>
                 {% endfor %}
@@ -432,6 +456,69 @@ HTML_TEMPLATE = """
                 });
         }
 
+        // 添加编辑表单提交处理
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const id = this.action.split('/').pop();
+            
+            fetch(`/edit/${id}`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 关闭模态框
+                    bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+                    
+                    // 更新表格中的对应行
+                    const row = document.querySelector(`tr[data-id="${id}"]`);
+                    if (row) {
+                        const cells = row.querySelectorAll('td');
+                        Object.keys(data.record).forEach((key, index) => {
+                            if (index < cells.length - 1) { // 排除最后一列的操作按钮
+                                if (key === 'url') {
+                                    cells[index].innerHTML = `<a href="${data.record[key]}" target="_blank" rel="noopener noreferrer">${data.record[key]}</a>`;
+                                } else if (key === 'type') {
+                                    cells[index].textContent = data.type_mapping[data.record[key]] || data.record[key];
+                                } else {
+                                    cells[index].textContent = data.record[key];
+                                }
+                            }
+                        });
+                    }
+                    
+                    // 显示成功消息
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-success alert-dismissible fade show';
+                    alertDiv.innerHTML = `
+                        ${data.message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    document.querySelector('.container').insertBefore(
+                        alertDiv,
+                        document.querySelector('h2')
+                    );
+                } else {
+                    // 显示错误消息
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+                    alertDiv.innerHTML = `
+                        ${data.message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    document.querySelector('.container').insertBefore(
+                        alertDiv,
+                        document.querySelector('h2')
+                    );
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
         function deleteRecord(id) {
             if (confirm('确定要删除这条记录吗？')) {
                 fetch(`/delete/${id}`, {
@@ -475,6 +562,92 @@ HTML_TEMPLATE = """
                 });
             }
         }
+
+        // 添加拖拽相关代码
+        document.addEventListener('DOMContentLoaded', function() {
+            const tbody = document.querySelector('tbody');
+            let draggedRow = null;
+            let draggedIndex = -1;
+
+            tbody.addEventListener('dragstart', function(e) {
+                if (e.target.closest('tr')) {
+                    draggedRow = e.target.closest('tr');
+                    draggedIndex = Array.from(tbody.children).indexOf(draggedRow);
+                    draggedRow.classList.add('dragging');
+                    e.dataTransfer.effectAllowed = 'move';
+                }
+            });
+
+            tbody.addEventListener('dragend', function(e) {
+                if (draggedRow) {
+                    draggedRow.classList.remove('dragging');
+                    draggedRow = null;
+                    draggedIndex = -1;
+                }
+            });
+
+            tbody.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                const targetRow = e.target.closest('tr');
+                if (targetRow && targetRow !== draggedRow) {
+                    targetRow.classList.add('drag-over');
+                }
+            });
+
+            tbody.addEventListener('dragleave', function(e) {
+                const targetRow = e.target.closest('tr');
+                if (targetRow) {
+                    targetRow.classList.remove('drag-over');
+                }
+            });
+
+            tbody.addEventListener('drop', function(e) {
+                e.preventDefault();
+                const targetRow = e.target.closest('tr');
+                if (targetRow && draggedRow && targetRow !== draggedRow) {
+                    targetRow.classList.remove('drag-over');
+                    
+                    // 发送交换请求到服务器
+                    fetch('/swap_positions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            id1: draggedRow.dataset.id,
+                            id2: targetRow.dataset.id
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // 交换成功，刷新页面以显示新顺序
+                            window.location.reload();
+                        } else {
+                            // 显示错误消息
+                            const alertDiv = document.createElement('div');
+                            alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+                            alertDiv.innerHTML = `
+                                ${data.message}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            `;
+                            document.querySelector('.container').insertBefore(
+                                alertDiv,
+                                document.querySelector('h2')
+                            );
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            });
+
+            // 为所有行添加拖拽属性
+            document.querySelectorAll('tbody tr').forEach(row => {
+                row.setAttribute('draggable', 'true');
+            });
+        });
     </script>
 </body>
 </html>
@@ -544,21 +717,27 @@ def delete(pk_value):
 @app.route("/edit/<pk_value>", methods=["GET", "POST"])
 def edit(pk_value):
     """编辑记录路由"""
-    page = (
-        int(request.args.get("page", 1)) 
-        if request.method == "GET" 
-        else int(request.form.get("page", 1))
-    )
-    
     if request.method == "POST":
         result, errors = update_row(pk_value, request.form)
         if result:
-            flash("更新成功", "success")
+            # 获取更新后的记录
+            row = get_row(pk_value)
+            columns = get_columns()
+            record = dict(zip(columns, row))
+            
+            return jsonify({
+                "success": True,
+                "message": "更新成功",
+                "record": record,
+                "type_mapping": TYPE_MAPPING
+            })
         else:
-            flash(f"更新失败：{errors}", "danger")
-        return redirect(f"/?page={page}")
+            return jsonify({
+                "success": False,
+                "message": f"更新失败：{errors}"
+            }), 400
     
-    return redirect(f"/?page={page}")
+    return redirect(f"/?page={request.args.get('page', 1)}")
 
 @app.route("/get/<pk_value>")
 def get_record(pk_value):
@@ -595,6 +774,54 @@ def export_data():
         
         flash("数据已成功导出到 data.json", "success")
         return redirect('/')
+
+@app.route("/swap_positions", methods=["POST"])
+def swap_positions():
+    """交换两条记录的位置"""
+    data = request.get_json()
+    id1 = data.get('id1')
+    id2 = data.get('id2')
+    
+    if not id1 or not id2:
+        return jsonify({
+            "success": False,
+            "message": "缺少必要的参数"
+        }), 400
+    
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+        try:
+            # 检查两条记录是否存在
+            cursor.execute(f"SELECT COUNT(*) FROM {TABLE_NAME} WHERE id IN (?, ?)", (id1, id2))
+            if cursor.fetchone()[0] != 2:
+                return jsonify({
+                    "success": False,
+                    "message": "记录不存在"
+                }), 404
+            
+            # 使用临时ID进行交换
+            temp_id = -1  # 使用一个不存在的ID作为临时ID
+            
+            # 第一步：将第一条记录移动到临时ID
+            cursor.execute(f"UPDATE {TABLE_NAME} SET id = ? WHERE id = ?", (temp_id, id1))
+            
+            # 第二步：将第二条记录移动到第一条记录的位置
+            cursor.execute(f"UPDATE {TABLE_NAME} SET id = ? WHERE id = ?", (id1, id2))
+            
+            # 第三步：将临时ID的记录移动到第二条记录的位置
+            cursor.execute(f"UPDATE {TABLE_NAME} SET id = ? WHERE id = ?", (id2, temp_id))
+            
+            conn.commit()
+            return jsonify({
+                "success": True,
+                "message": "位置交换成功"
+            })
+        except sqlite3.Error as e:
+            conn.rollback()  # 发生错误时回滚事务
+            return jsonify({
+                "success": False,
+                "message": f"交换失败：{str(e)}"
+            }), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
