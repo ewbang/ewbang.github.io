@@ -1,0 +1,1 @@
+ D:\software\Python\miniconda3\envs\ewbangcn\python.exe ui.py
