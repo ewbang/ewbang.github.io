@@ -1510,5 +1510,11 @@
         "type": 7,
         "text": "看雪论坛",
         "url": "https://bbs.kanxue.com/"
+    },
+    {
+        "id": 277,
+        "type": 7,
+        "text": "time.is",
+        "url": "https://time.is/"
     }
 ]
