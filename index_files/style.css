@@ -4,6 +4,12 @@
     --text-color: #333;
     --bg-color: #f5f5f5;
     --hover-color: #0456c8;
+    --card-bg: #f8f9fa;
+    --card-border: #eee;
+    --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --card-shadow-hover: 0 5px 15px rgba(0,0,0,0.1);
+    --border-radius: 10px;
+    --error-color: #e74c3c;
 }
 
 * {
@@ -54,7 +60,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 20px;
+    padding: 20px;
     flex: 1;
     width: 100%;
     padding-bottom: 60px;
@@ -69,17 +75,18 @@ body {
 }
 
 .software-item {
-    background: #f8f9fa;
-    border-radius: 10px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
     padding: 20px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 160px;
-    border: 1px solid #eee;
+    border: 1px solid var(--card-border);
 }
 
 .software-item a {
@@ -93,19 +100,21 @@ body {
 .software-item img {
     width: 150px;
     height: auto;
-    margin: 0;
+    margin: 0 0 10px;
     transition: transform 0.3s ease;
     object-fit: contain;
 }
-.software-item p{
-    color: #0570FD;
+
+.software-item p {
+    color: var(--primary-color);
     font-weight: 500;
+    margin-top: 10px;
 }
 
 .software-item:hover {
     transform: translateY(-5px);
     background: #ffffff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .software-item:hover img {
@@ -114,15 +123,15 @@ body {
 
 .links-section {
     background: white;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 
 .links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 20px;
 }
@@ -130,26 +139,27 @@ body {
 .link-item {
     text-decoration: none;
     color: var(--text-color);
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
     transition: all 0.3s ease;
-    background: #f8f9fa;
+    background: var(--card-bg);
     text-align: center;
     display: flex;
     align-items: center;
     gap: 10px;
+    border: 1px solid var(--card-border);
 }
 
 .link-logo {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     flex-shrink: 0;
     transition: all 0.3s ease;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -157,13 +167,13 @@ body {
 }
 
 /* 不同类型的颜色方案 */
-.type-1 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 系统综合 - 主题蓝 */
-.type-2 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 效率工具 - 天蓝色 */
-.type-3 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 编程开发 - 青绿色 */
-.type-4 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 人工智能 - 翠绿色 */
-.type-5 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 运维相关 - 深蓝灰 */
-.type-6 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 文档教程 - 天蓝色 */
-.type-7 { background: linear-gradient(135deg, #2980B9, #2980B9); } /* 文档教程 - 天蓝色 */
+.type-1 { background: linear-gradient(135deg, #3498db, #2980b9); } /* 系统综合 - 蓝色 */
+.type-2 { background: linear-gradient(135deg, #1abc9c, #16a085); } /* 效率工具 - 青绿色 */
+.type-3 { background: linear-gradient(135deg, #9b59b6, #8e44ad); } /* 编程开发 - 紫色 */
+.type-4 { background: linear-gradient(135deg, #e74c3c, #c0392b); } /* 人工智能 - 红色 */
+.type-5 { background: linear-gradient(135deg, #34495e, #2c3e50); } /* 运维相关 - 深蓝灰 */
+.type-6 { background: linear-gradient(135deg, #f1c40f, #f39c12); } /* 文档教程 - 黄色 */
+.type-7 { background: linear-gradient(135deg, #2ecc71, #27ae60); } /* 杂七杂八 - 绿色 */
 
 .link-text {
     flex: 1;
@@ -195,37 +205,11 @@ body {
     color: var(--primary-color);
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 15px 10px;
-        padding-bottom: 100px;
-    }
-
-    .header h1 {
-        font-size: 24px;
-    }
-
-    .software-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .links-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.section-title {
-    font-size: 20px;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 500;
-}
-
 /* 切换按钮样式 */
 .switch-buttons {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -236,11 +220,16 @@ body {
     background-color: #f0f0f0;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.switch-button:hover {
+    background-color: #e0e0e0;
 }
 
 .switch-button.active {
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -250,15 +239,195 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 10px 0;
     text-align: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 .copyright p {
     margin: 0;
     color: #666;
     font-size: 14px;
+}
+
+/* 页面标题 */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 28px;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* 节标题 */
+.section-title {
+    font-size: 22px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.software-section {
+    margin-bottom: 30px;
+}
+
+/* 加载状态 */
+.loading, .error, .no-data {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 16px;
+    grid-column: 1 / -1;
+}
+
+.error {
+    color: var(--error-color);
+}
+
+.no-data {
+    color: #666;
+    font-style: italic;
+}
+
+/* 移动设备特定样式 */
+body.mobile-device .switch-buttons {
+    flex-wrap: wrap;
+}
+
+/* 响应式布局 */
+@media (max-width: 992px) {
+    .container {
+        padding: 15px;
+        padding-bottom: 70px;
+    }
+    
+    .software-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .links-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .page-title {
+        font-size: 26px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+        padding-bottom: 70px;
+    }
+    
+    .software-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .software-item {
+        min-height: 140px;
+        padding: 15px;
+    }
+    
+    .software-item img {
+        width: 120px;
+    }
+    
+    .switch-buttons {
+        gap: 8px;
+    }
+    
+    .switch-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .page-title {
+        font-size: 22px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        padding-bottom: 60px;
+    }
+    
+    .software-grid {
+        gap: 12px;
+    }
+    
+    .links-grid {
+        gap: 10px;
+    }
+    
+    .software-item {
+        min-height: 120px;
+        padding: 12px;
+    }
+    
+    .software-item img {
+        width: 100px;
+    }
+    
+    .software-item p {
+        font-size: 14px;
+    }
+    
+    .link-item {
+        padding: 10px 12px;
+    }
+    
+    .link-logo {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .link-text {
+        font-size: 13px;
+    }
+    
+    .switch-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .page-title {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+    
+    .section-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .loading, .error, .no-data {
+        padding: 20px;
+        font-size: 14px;
+    }
 }

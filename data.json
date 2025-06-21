@@ -33,7 +33,7 @@
         "id": 6,
         "type": 1,
         "text": "nvidia驱动",
-        "url": "https://www.nvidia.cn/drivers/lookup/"
+        "url": "https://www.nvidia.cn/geforce/drivers/"
     },
     {
         "id": 7,
@@ -1134,18 +1134,6 @@
         "url": "https://www.processon.com/"
     },
     {
-        "id": 211,
-        "type": 7,
-        "text": "光影魔术手",
-        "url": "https://www.neoimaging.cn/"
-    },
-    {
-        "id": 212,
-        "type": 7,
-        "text": "匿名聊天室",
-        "url": "http://43.163.222.25:5173/"
-    },
-    {
         "id": 213,
         "type": 7,
         "text": "发个东西",
@@ -1522,5 +1510,11 @@
         "type": 7,
         "text": "Xeno Link",
         "url": "https://xeno5.top"
+    },
+    {
+        "id": 279,
+        "type": 7,
+        "text": "狗狗加速器",
+        "url": "https://inv.dginv.click/#/register?code=d88hV0q1"
     }
 ]
