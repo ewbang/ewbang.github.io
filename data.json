@@ -84,12 +84,6 @@
         "url": "https://cn-quark.org/"
     },
     {
-        "id": 16,
-        "type": 1,
-        "text": "QQ浏览器",
-        "url": "https://browser.qq.com/"
-    },
-    {
         "id": 17,
         "type": 1,
         "text": "winrar解压工具",
@@ -214,18 +208,6 @@
         "type": 2,
         "text": "Gmail邮箱",
         "url": "https://mail.google.com/"
-    },
-    {
-        "id": 39,
-        "type": 2,
-        "text": "Outlook邮箱",
-        "url": "https://www.microsoft.com/zh-cn/microsoft-365/outlook/web-email-login-for-outlook"
-    },
-    {
-        "id": 40,
-        "type": 2,
-        "text": "139邮箱",
-        "url": "https://mail.10086.cn/"
     },
     {
         "id": 41,
@@ -411,7 +393,7 @@
         "id": 78,
         "type": 3,
         "text": "清华镜像源",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/"
     },
     {
         "id": 80,
@@ -660,12 +642,6 @@
         "url": "https://gemini.google.com/app"
     },
     {
-        "id": 126,
-        "type": 5,
-        "text": "百度云",
-        "url": "https://cloud.baidu.com/"
-    },
-    {
         "id": 127,
         "type": 5,
         "text": "七牛云",
@@ -676,30 +652,6 @@
         "type": 5,
         "text": "Git",
         "url": "https://git-scm.com/downloads"
-    },
-    {
-        "id": 129,
-        "type": 5,
-        "text": "GitLab",
-        "url": "https://gitlab.com/"
-    },
-    {
-        "id": 130,
-        "type": 5,
-        "text": "Xshell",
-        "url": "https://www.xshell.com/en/xshell-download/"
-    },
-    {
-        "id": 131,
-        "type": 5,
-        "text": "Xftp",
-        "url": "https://www.xshell.com/en/xftp/"
-    },
-    {
-        "id": 132,
-        "type": 5,
-        "text": "Xmanager",
-        "url": "https://www.xshell.com/en/xmanager/"
     },
     {
         "id": 133,
@@ -978,22 +930,10 @@
         "url": "https://www.box3.cn/tools/jwt.html"
     },
     {
-        "id": 185,
-        "type": 4,
-        "text": "天工AI",
-        "url": "https://www.tiangong.cn/"
-    },
-    {
         "id": 186,
         "type": 4,
         "text": "blackboxAI",
         "url": "https://www.blackbox.ai/"
-    },
-    {
-        "id": 187,
-        "type": 4,
-        "text": "文心快码编程助手",
-        "url": "https://comate.baidu.com/zh"
     },
     {
         "id": 188,
@@ -1050,22 +990,10 @@
         "url": "https://chatglm.cn/main/alltoolsdetail?lang=zh"
     },
     {
-        "id": 197,
-        "type": 4,
-        "text": "文心一格",
-        "url": "https://yige.baidu.com/"
-    },
-    {
         "id": 198,
         "type": 4,
         "text": "纳米AI搜索",
         "url": "https://www.n.cn/"
-    },
-    {
-        "id": 199,
-        "type": 4,
-        "text": "英伟达ai搜索",
-        "url": "https://build.nvidia.com/deepseek-ai/deepseek-r1"
     },
     {
         "id": 200,
@@ -1180,12 +1108,6 @@
         "type": 7,
         "text": "bilibili大学",
         "url": "https://www.bilibili.com/"
-    },
-    {
-        "id": 221,
-        "type": 7,
-        "text": "雪球",
-        "url": "https://xueqiu.com/"
     },
     {
         "id": 222,
@@ -1320,24 +1242,6 @@
         "url": "https://chatglm.cn/main/alltoolsdetail?lang=zh"
     },
     {
-        "id": 244,
-        "type": 4,
-        "text": "商量智能助手",
-        "url": "https://chat.sensetime.com/"
-    },
-    {
-        "id": 245,
-        "type": 4,
-        "text": "百小应AI",
-        "url": "https://chat.sensetime.com/"
-    },
-    {
-        "id": 246,
-        "type": 5,
-        "text": "搬瓦工VPS",
-        "url": "https://bwg.wiki/"
-    },
-    {
         "id": 247,
         "type": 7,
         "text": "正则可视化",
@@ -1386,52 +1290,16 @@
         "url": "https://www.yuque.com/dashboard"
     },
     {
-        "id": 255,
-        "type": 5,
-        "text": "西部数码",
-        "url": "https://www.west.cn/"
-    },
-    {
-        "id": 257,
-        "type": 5,
-        "text": "华为云",
-        "url": "https://activity.huaweicloud.com/"
-    },
-    {
         "id": 258,
         "type": 5,
         "text": "AutoDL算力云",
         "url": "https://www.autodl.com"
     },
     {
-        "id": 259,
-        "type": 5,
-        "text": "亚马逊",
-        "url": "https://www.amazonaws.cn/"
-    },
-    {
-        "id": 260,
-        "type": 7,
-        "text": "youtube",
-        "url": "https://www.youtube.com/"
-    },
-    {
-        "id": 261,
-        "type": 5,
-        "text": "appnode",
-        "url": "https://www.appnode.com/"
-    },
-    {
         "id": 262,
         "type": 5,
         "text": "LNMP环境",
         "url": "https://lnmp.org/download.html"
-    },
-    {
-        "id": 264,
-        "type": 3,
-        "text": "在线HTTP请求",
-        "url": "https://www.idcd.com/tool/http/curl"
     },
     {
         "id": 265,
@@ -1470,12 +1338,6 @@
         "url": "https://www.nuxt.com.cn/docs/getting-started/installation"
     },
     {
-        "id": 272,
-        "type": 7,
-        "text": "在线代码运行",
-        "url": "https://tool.lu/coderunner/"
-    },
-    {
         "id": 273,
         "type": 6,
         "text": "HarmonyOS - 仓颉",
@@ -1498,12 +1360,6 @@
         "type": 7,
         "text": "看雪论坛",
         "url": "https://bbs.kanxue.com/"
-    },
-    {
-        "id": 277,
-        "type": 7,
-        "text": "time.is",
-        "url": "https://time.is/"
     },
     {
         "id": 278,
