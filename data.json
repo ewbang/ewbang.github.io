@@ -1300,5 +1300,11 @@
         "type": 3,
         "text": "Elasticsearch下载",
         "url": "https://www.elastic.co/cn/downloads/past-releases"
+    },
+    {
+        "id": 282,
+        "type": 4,
+        "text": "cursor历史下载",
+        "url": "https://github.com/worryzyy/awesome-cursor-download"
     }
 ]
