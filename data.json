@@ -291,7 +291,7 @@
         "id": 62,
         "type": 2,
         "text": "everything",
-        "url": "https://rodgersnow.lanzoul.com/iNrll2u0q1za"
+        "url": "https://www.voidtools.com/zh-cn/"
     },
     {
         "id": 63,
@@ -1306,5 +1306,59 @@
         "type": 4,
         "text": "cursor历史下载",
         "url": "https://github.com/worryzyy/awesome-cursor-download"
+    },
+    {
+        "id": 283,
+        "type": 3,
+        "text": "Ubuntu历史版本",
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/"
+    },
+    {
+        "id": 284,
+        "type": 3,
+        "text": "Neo4j Desktop",
+        "url": "https://neo4j.com/deployment-center/#community"
+    },
+    {
+        "id": 285,
+        "type": 2,
+        "text": "临时邮箱",
+        "url": "https://tempmail.ing/zh-cn/"
+    },
+    {
+        "id": 286,
+        "type": 7,
+        "text": "四川电子税务局",
+        "url": "https://tpass.sichuan.chinatax.gov.cn:8443/#/login?redirect_uri=https%3A%2F%2Fetax.sichuan.chinatax.gov.cn%2Fmhzx%2Fapi%2Fmh%2Ftpass%2Fcode&client_id=dddkead26f29477b9ea237d6845b8f44&response_type=code&state=3ed2577504874e8c8d3d0941fc784fad&client_pid=dddkead26f29477b9ea237d6845b8f44"
+    },
+    {
+        "id": 287,
+        "type": 4,
+        "text": "qoder",
+        "url": "https://qoder.com/"
+    },
+    {
+        "id": 288,
+        "type": 3,
+        "text": "cursor扩展插件",
+        "url": "https://open-vsx.org/"
+    },
+    {
+        "id": 289,
+        "type": 3,
+        "text": "vscode扩展插件",
+        "url": "https://marketplace.visualstudio.com/"
+    },
+    {
+        "id": 290,
+        "type": 1,
+        "text": "软件管家",
+        "url": "https://www.52gjyk.com/win"
+    },
+    {
+        "id": 291,
+        "type": 7,
+        "text": "百度联盟",
+        "url": "https://union.baidu.com/aibqt/"
     }
 ]
