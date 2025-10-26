@@ -980,8 +980,8 @@
     {
         "id": 208,
         "type": 7,
-        "text": "Devpn",
-        "url": "https://goen.win/XAw2fc"
+        "text": "爱传送",
+        "url": "https://mfiles.maokebing.com/index.html"
     },
     {
         "id": 209,
@@ -1190,8 +1190,8 @@
     {
         "id": 252,
         "type": 7,
-        "text": "爱传送",
-        "url": "https://mfiles.maokebing.com/index.html"
+        "text": "百度联盟",
+        "url": "https://union.baidu.com/aibqt/"
     },
     {
         "id": 253,
@@ -1328,8 +1328,8 @@
     {
         "id": 286,
         "type": 7,
-        "text": "四川电子税务局",
-        "url": "https://tpass.sichuan.chinatax.gov.cn:8443/#/login?redirect_uri=https%3A%2F%2Fetax.sichuan.chinatax.gov.cn%2Fmhzx%2Fapi%2Fmh%2Ftpass%2Fcode&client_id=dddkead26f29477b9ea237d6845b8f44&response_type=code&state=3ed2577504874e8c8d3d0941fc784fad&client_pid=dddkead26f29477b9ea237d6845b8f44"
+        "text": "猫熊网络加速器",
+        "url": "https://maoxiongnet.com/auth/login"
     },
     {
         "id": 287,
@@ -1358,7 +1358,55 @@
     {
         "id": 291,
         "type": 7,
-        "text": "百度联盟",
-        "url": "https://union.baidu.com/aibqt/"
+        "text": "Devpn",
+        "url": "https://goen.win/XAw2fc"
+    },
+    {
+        "id": 292,
+        "type": 7,
+        "text": "四川电子税务局",
+        "url": "https://tpass.sichuan.chinatax.gov.cn:8443/#/login?redirect_uri=https%3A%2F%2Fetax.sichuan.chinatax.gov.cn%2Fmhzx%2Fapi%2Fmh%2Ftpass%2Fcode&client_id=dddkead26f29477b9ea237d6845b8f44&response_type=code&state=3ed2577504874e8c8d3d0941fc784fad&client_pid=dddkead26f29477b9ea237d6845b8f44"
+    },
+    {
+        "id": 293,
+        "type": 4,
+        "text": "codeflicker",
+        "url": "https://www.codeflicker.ai/"
+    },
+    {
+        "id": 294,
+        "type": 4,
+        "text": "windsurf",
+        "url": "https://windsurf.com/editor"
+    },
+    {
+        "id": 295,
+        "type": 4,
+        "text": "warp",
+        "url": "https://www.warp.dev/code"
+    },
+    {
+        "id": 296,
+        "type": 4,
+        "text": "Cody",
+        "url": "https://sourcegraph.com/amp"
+    },
+    {
+        "id": 297,
+        "type": 4,
+        "text": "CodeBuddy",
+        "url": "https://copilot.tencent.com/"
+    },
+    {
+        "id": 298,
+        "type": 4,
+        "text": "Junie",
+        "url": "https://www.jetbrains.com/junie"
+    },
+    {
+        "id": 299,
+        "type": 4,
+        "text": "codex",
+        "url": "https://openai.com/zh-Hans-CN/index/codex-now-generally-available/"
     }
 ]
