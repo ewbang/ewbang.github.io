@@ -190,7 +190,7 @@ body {
 
 /* 不同类型的颜色方案 */
 /* 所有类型统一颜色样式 */
-.type-1, .type-2, .type-3, .type-4, .type-5, .type-6, .type-7 {
+.type-1, .type-2, .type-3, .type-4, .type-5, .type-6, .type-7, .type-8 {
     background: linear-gradient(135deg, #2980B9, #2980B9); /* 主题蓝 */
 }
 

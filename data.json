@@ -555,7 +555,7 @@
         "id": 118,
         "type": 4,
         "text": "通义千问",
-        "url": "https://tongyi.aliyun.com/"
+        "url": "https://www.qianwen.com/"
     },
     {
         "id": 119,
@@ -590,7 +590,7 @@
     {
         "id": 125,
         "type": 4,
-        "text": "Google Bard",
+        "text": "Google gemini",
         "url": "https://gemini.google.com/app"
     },
     {
@@ -1408,5 +1408,191 @@
         "type": 4,
         "text": "codex",
         "url": "https://openai.com/zh-Hans-CN/index/codex-now-generally-available/"
+    },
+    {
+        "id": 300,
+        "type": 8,
+        "text": "clash-for-linux-install",
+        "url": "https://github.com/nelvko/clash-for-linux-install"
+    },
+    {
+        "id": 301,
+        "type": 8,
+        "text": "clash-for-AutoDL",
+        "url": "https://github.com/VocabVictor/clash-for-AutoDL"
+    },
+    {
+        "id": 302,
+        "type": 8,
+        "text": "3x-ui",
+        "url": "https://github.com/MHSanaei/3x-ui"
+    },
+    {
+        "id": 303,
+        "type": 8,
+        "text": "v2rayN",
+        "url": "https://github.com/2dust/v2rayN"
+    },
+    {
+        "id": 304,
+        "type": 5,
+        "text": "Gitlab-CE",
+        "url": "https://packages.gitlab.com/gitlab/gitlab-ce"
+    },
+    {
+        "id": 305,
+        "type": 8,
+        "text": "awesome-cpp",
+        "url": "https://github.com/fffaraz/awesome-cpp"
+    },
+    {
+        "id": 306,
+        "type": 8,
+        "text": "awesome-python",
+        "url": "https://github.com/vinta/awesome-python"
+    },
+    {
+        "id": 307,
+        "type": 8,
+        "text": "awesome-mac",
+        "url": "https://github.com/jaywcjlove/awesome-mac"
+    },
+    {
+        "id": 308,
+        "type": 8,
+        "text": "Awesome-Linux-Software",
+        "url": "https://github.com/luong-komorebi/Awesome-Linux-Software"
+    },
+    {
+        "id": 309,
+        "type": 8,
+        "text": "linux-command",
+        "url": "https://github.com/jaywcjlove/linux-command"
+    },
+    {
+        "id": 310,
+        "type": 8,
+        "text": "reference",
+        "url": "https://github.com/jaywcjlove/reference"
+    },
+    {
+        "id": 311,
+        "type": 8,
+        "text": "nginx-tutorial",
+        "url": "https://github.com/jaywcjlove/nginx-tutorial"
+    },
+    {
+        "id": 312,
+        "type": 8,
+        "text": "rustfs",
+        "url": "https://github.com/rustfs/rustfs"
+    },
+    {
+        "id": 313,
+        "type": 8,
+        "text": "JavaGuide",
+        "url": "https://github.com/Snailclimb/JavaGuide"
+    },
+    {
+        "id": 314,
+        "type": 8,
+        "text": "cgohlke",
+        "url": "https://www.cgohlke.com/"
+    },
+    {
+        "id": 315,
+        "type": 8,
+        "text": "OpenCV",
+        "url": "https://github.com/opencv"
+    },
+    {
+        "id": 316,
+        "type": 8,
+        "text": "obs-studio",
+        "url": "https://github.com/obsproject/obs-studio"
+    },
+    {
+        "id": 317,
+        "type": 8,
+        "text": "github中文社区",
+        "url": "https://www.github-zh.com/"
+    },
+    {
+        "id": 318,
+        "type": 8,
+        "text": "cmder",
+        "url": "https://github.com/cmderdev/cmder"
+    },
+    {
+        "id": 319,
+        "type": 8,
+        "text": "CS-Notes",
+        "url": "https://github.com/CyC2018/CS-Notes"
+    },
+    {
+        "id": 320,
+        "type": 8,
+        "text": "transformers",
+        "url": "https://github.com/huggingface/transformers"
+    },
+    {
+        "id": 321,
+        "type": 8,
+        "text": "yt-dlp",
+        "url": "https://github.com/yt-dlp/yt-dlp"
+    },
+    {
+        "id": 322,
+        "type": 8,
+        "text": "dify",
+        "url": "https://github.com/langgenius/dify"
+    },
+    {
+        "id": 323,
+        "type": 8,
+        "text": "PowerVim",
+        "url": "https://github.com/youngyangyang04/PowerVim"
+    },
+    {
+        "id": 324,
+        "type": 8,
+        "text": "redis-windows",
+        "url": "https://github.com/redis-windows/redis-windows"
+    },
+    {
+        "id": 325,
+        "type": 8,
+        "text": "res-downloader",
+        "url": "https://github.com/putyy/res-downloader"
+    },
+    {
+        "id": 326,
+        "type": 8,
+        "text": "Machine-Learning-Tutorials",
+        "url": "https://github.com/ujjwalkarn/Machine-Learning-Tutorials"
+    },
+    {
+        "id": 327,
+        "type": 8,
+        "text": "devops-exercises",
+        "url": "https://github.com/bregman-arie/devops-exercises"
+    },
+    {
+        "id": 328,
+        "type": 8,
+        "text": "ChatGPT",
+        "url": "https://github.com/lencx/ChatGPT/releases"
+    },
+    {
+        "id": 329,
+        "type": 8,
+        "text": "Pake",
+        "url": "https://github.com/tw93/Pake"
+    },
+    {
+        "id": 330,
+        "type": 8,
+        "text": "stock",
+        "url": "https://github.com/myhhub/stock"
     }
 ]
