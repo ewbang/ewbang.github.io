@@ -37,7 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const blackStatus = document.getElementById('black-status');
             const whiteStatus = document.getElementById('white-status');
             const toast = document.getElementById('toast');
-            const historyList = document.getElementById('history-list');
+            const positionCodeDisplay = document.getElementById('position-code-display');
+            const copyCodeBtn = document.getElementById('copy-code-btn');
+            const positionCodeInput = document.getElementById('position-code-input');
+            const applyCodeBtn = document.getElementById('apply-code-btn');
             
             function initBoard() {
                 const cells = boardGrid.querySelectorAll('.cell, .star-point');
@@ -106,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 renderPiece(row, col, gameState.currentPlayer, gameState.moveCount, true);
-                updateHistoryList();
+                updatePositionCodeDisplay();
                 
                 const winResult = checkWin(row, col, gameState.currentPlayer);
                 if (winResult) {
@@ -131,35 +134,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 cell.appendChild(piece);
             }
             
-            function updateHistoryList() {
-                historyList.innerHTML = '';
-                
-                if (gameState.moveHistory.length === 0) {
-                    historyList.innerHTML = '<div class="history-empty">暂无记录</div>';
-                    return;
+            // 局面代码：格式 H8H7G7…（列 A-O + 行 1-15，无分隔）
+            function getPositionCode() {
+                if (gameState.moveHistory.length === 0) return '';
+                return gameState.moveHistory.map(m => {
+                    const colChar = String.fromCharCode(65 + m.col);
+                    const rowNum = 15 - m.row;
+                    return colChar + rowNum;
+                }).join('');
+            }
+            
+            function updatePositionCodeDisplay() {
+                const code = getPositionCode();
+                positionCodeDisplay.textContent = code || '—';
+            }
+            
+            function parsePositionCode(str) {
+                if (!str || typeof str !== 'string') return [];
+                const s = str.replace(/\s/g, '').toUpperCase();
+                const matches = s.match(/[A-O]\d{1,2}/g);
+                if (!matches) return [];
+                const moves = [];
+                for (const m of matches) {
+                    const col = m.charCodeAt(0) - 65;
+                    const rowNum = parseInt(m.slice(1), 10);
+                    if (rowNum < 1 || rowNum > 15 || col < 0 || col > 14) continue;
+                    const row = 15 - rowNum;
+                    moves.push({ row, col });
                 }
+                return moves;
+            }
+            
+            function applyPositionCode(codeStr) {
+                const moves = parsePositionCode(codeStr);
+                if (moves.length === 0) {
+                    showToast('局面代码无效或为空');
+                    return false;
+                }
+                // 清空棋盘
+                gameState.board = Array(15).fill().map(() => Array(15).fill(null));
+                gameState.moveHistory = [];
+                gameState.moveCount = 0;
+                gameState.currentPlayer = 'black';
+                gameState.gameOver = false;
                 
-                gameState.moveHistory.forEach((move, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'history-item';
-                    if (index === gameState.moveHistory.length - 1) {
-                        item.classList.add('current');
+                const pieces = boardGrid.querySelectorAll('.piece');
+                pieces.forEach(p => p.remove());
+                
+                let player = 'black';
+                for (const { row, col } of moves) {
+                    if (row < 0 || row >= 15 || col < 0 || col >= 15 || gameState.board[row][col] !== null) {
+                        showToast('局面代码含非法或重复落点，已还原至该手之前');
+                        break;
                     }
-                    
-                    const col = String.fromCharCode(65 + move.col);
-                    const row = 15 - move.row;
-                    
-                    item.innerHTML = `
-                        <div class="history-player-icon ${move.player}"></div>
-                        <span class="history-number">#${index + 1}</span>
-                        <span class="history-coord">(${col}, ${row})</span>
-                    `;
-                    
-                    historyList.appendChild(item);
-                });
-                
-                // 自动滚动到最新
-                historyList.scrollTop = historyList.scrollHeight;
+                    gameState.board[row][col] = player;
+                    gameState.moveHistory.push({ row, col, player });
+                    gameState.moveCount++;
+                    renderPiece(row, col, player, gameState.moveCount, false);
+                    player = player === 'black' ? 'white' : 'black';
+                }
+                gameState.currentPlayer = player;
+                const lastMove = gameState.moveHistory[gameState.moveHistory.length - 1];
+                if (lastMove) {
+                    const lastCell = boardGrid.querySelector(`.cell[data-row="${lastMove.row}"][data-col="${lastMove.col}"]`);
+                    const lastPiece = lastCell && lastCell.querySelector('.piece');
+                    if (lastPiece) lastPiece.classList.add('last-move');
+                }
+                updatePlayerDisplay();
+                updateForbiddenPoints();
+                updatePositionCodeDisplay();
+                positionCodeInput.value = '';
+                showToast('已还原局面');
+                return true;
             }
             
             function updatePlayerDisplay() {
@@ -488,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameState.currentPlayer = lastMove.player;
                 updatePlayerDisplay();
                 updateForbiddenPoints();
-                updateHistoryList();
+                updatePositionCodeDisplay();
                 showToast('已悔棋');
             }
             
@@ -504,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 updatePlayerDisplay();
                 updateForbiddenPoints();
-                updateHistoryList();
+                updatePositionCodeDisplay();
                 winnerModal.classList.remove('show');
                 showToast('游戏已重置');
             }
@@ -755,6 +801,18 @@ document.addEventListener('DOMContentLoaded', () => {
             undoBtn.addEventListener('click', undoMove);
             resetBtn.addEventListener('click', resetGame);
             saveBtn.addEventListener('click', saveAsImage);
+            copyCodeBtn.addEventListener('click', () => {
+                const code = getPositionCode();
+                if (!code) {
+                    showToast('当前无局面可复制');
+                    return;
+                }
+                navigator.clipboard.writeText(code).then(() => showToast('已复制局面代码')).catch(() => showToast('复制失败'));
+            });
+            applyCodeBtn.addEventListener('click', () => {
+                const code = positionCodeInput.value.trim();
+                applyPositionCode(code || undefined);
+            });
             modalCloseBtn.addEventListener('click', resetGame);
             forbiddenCloseBtn.addEventListener('click', () => forbiddenModal.classList.remove('show'));
             if (rulesBtn) rulesBtn.addEventListener('click', () => rulesModal.classList.add('show'));
@@ -788,4 +846,5 @@ document.addEventListener('DOMContentLoaded', () => {
             
             initBoard();
             updatePlayerDisplay();
+            updatePositionCodeDisplay();
         });

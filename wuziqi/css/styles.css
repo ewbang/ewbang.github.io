@@ -1003,120 +1003,79 @@
             transform: translateX(-50%) translateY(0);
         }
         
-        /* 右侧历史记录面板 */
-        .history-panel {
+        /* 右侧局面代码面板 */
+        .position-code-panel {
             background: linear-gradient(145deg, #ffffff, #f0f0f0);
             border-radius: 16px;
             padding: 15px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
             width: 200px;
-            max-height: 600px;
             display: flex;
             flex-direction: column;
+            gap: 10px;
         }
         
-        .history-panel h3 {
+        .position-code-panel h3 {
             font-size: 1.1rem;
             color: #333;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .history-list {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 5px;
-        }
-        
-        .history-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .history-list::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-        
-        .history-list::-webkit-scrollbar-thumb {
-            background: linear-gradient(145deg, #667eea, #764ba2);
-            border-radius: 3px;
-        }
-        
-        .history-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 10px;
             margin-bottom: 4px;
-            background: #f8f8f8;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        
-        .history-item:hover {
-            background: #e8e8e8;
-            transform: translateX(3px);
-        }
-        
-        .history-item.current {
-            background: linear-gradient(145deg, #ffeaa7, #fdcb6e);
-            font-weight: 600;
-        }
-        
-        .history-number {
-            min-width: 30px;
             text-align: center;
-            font-weight: 600;
-            color: #666;
         }
         
-        .history-coord {
-            flex: 1;
+        .position-code-display {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.8rem;
             color: #333;
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            min-height: 44px;
+            word-break: break-all;
+            line-height: 1.4;
         }
         
-        .history-player-icon {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
+        .position-code-paste {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
         
-        .history-player-icon.black {
-            background: radial-gradient(circle at 30% 30%, #555, #000);
-        }
-        
-        .history-player-icon.white {
-            background: radial-gradient(circle at 30% 30%, #fff, #ccc);
-            border: 1px solid #ddd;
-        }
-        
-        .history-empty {
-            text-align: center;
-            color: #999;
-            padding: 20px 10px;
+        .position-code-input {
+            width: 100%;
+            padding: 10px;
             font-size: 0.85rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+        }
+        
+        .position-code-input::placeholder {
+            color: #999;
+        }
+        
+        .position-code-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+        
+        .btn-copy-code {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-apply-code {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
         }
         
         /* 响应式 */
         @media (max-width: 1200px) {
-            .history-panel {
+            .position-code-panel {
                 width: 100%;
-                max-width: 600px;
-                max-height: 200px;
-            }
-            
-            .history-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 5px;
-            }
-            
-            .history-item {
-                flex: 0 0 auto;
-                margin-bottom: 0;
+                max-width: 400px;
             }
         }
         
@@ -1152,7 +1111,7 @@
             }
 
             .right-panel .controls-panel,
-            .right-panel .history-panel {
+            .right-panel .position-code-panel {
                 flex: 1;
                 min-width: 160px;
             }
@@ -1291,7 +1250,7 @@
             }
 
             .right-panel .controls-panel,
-            .right-panel .history-panel {
+            .right-panel .position-code-panel {
                 min-width: 140px;
             }
             
@@ -1309,7 +1268,8 @@
                 margin-bottom: 8px;
             }
             
-            .history-panel {
-                max-height: 180px;
+            .position-code-display {
+                font-size: 0.75rem;
+                min-height: 38px;
             }
         }

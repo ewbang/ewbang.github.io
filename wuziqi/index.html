@@ -84,17 +84,20 @@
             <div class="coord-bottom" id="coord-bottom"></div>
         </div>
         
-        <!-- 右侧：操作按钮 + 棋谱记录 -->
+        <!-- 右侧：操作按钮 + 局面代码 -->
         <div class="right-panel">
             <div class="controls-panel">
                 <button class="btn btn-undo" id="undo-btn"><span>↶ 悔棋</span></button>
                 <button class="btn btn-reset" id="reset-btn"><span>🔄 重新开始</span></button>
                 <button class="btn btn-save" id="save-btn"><span>📸 保存图片</span></button>
             </div>
-            <div class="history-panel">
-                <h3>📝 棋谱记录</h3>
-                <div class="history-list" id="history-list">
-                    <div class="history-empty">暂无记录</div>
+            <div class="position-code-panel">
+                <h3>📋 局面代码</h3>
+                <div class="position-code-display" id="position-code-display">—</div>
+                <button type="button" class="btn btn-copy-code" id="copy-code-btn"><span>📋 复制局面代码</span></button>
+                <div class="position-code-paste">
+                    <input type="text" class="position-code-input" id="position-code-input" placeholder="粘贴局面代码">
+                    <button type="button" class="btn btn-apply-code" id="apply-code-btn"><span>还原棋局</span></button>
                 </div>
             </div>
         </div>
@@ -145,7 +148,7 @@
                 </section>
                 <section>
                     <h3>其他</h3>
-                    <p>棋盘为 15×15，坐标横向 A～O、纵向 1～15，便于记录棋谱。支持悔棋、重新开始与保存棋局图片。</p>
+                    <p>棋盘为 15×15，坐标横向 A～O、纵向 1～15，支持局面代码（如 H8H7G7…）复制与粘贴还原。支持悔棋、重新开始与保存棋局图片。</p>
                 </section>
             </div>
             <button class="modal-btn" id="rules-close-btn">知道了</button>
