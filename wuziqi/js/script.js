@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             function endGame(winner, winningPositions) {
                 gameState.gameOver = true;
-                const winnerName = winner === 'black' ? '黑方' : '白方';
+                const winnerName = winner === 'black' ? '黑棋' : '白棋';
                 winnerTitle.textContent = '🎉 恭喜获胜！';
                 winnerText.textContent = `${winnerName}获得胜利！`;
                 

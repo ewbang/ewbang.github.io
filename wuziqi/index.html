@@ -19,7 +19,7 @@
             <div class="player-card black-card active" id="black-player">
                 <div class="player-header">
                     <div class="player-piece-icon black"></div>
-                    <span class="player-name">黑方</span>
+                    <span class="player-name">黑棋</span>
                 </div>
                 <div class="player-status thinking" id="black-status">思考中...</div>
             </div>
@@ -27,7 +27,7 @@
             <div class="player-card white-card" id="white-player">
                 <div class="player-header">
                     <div class="player-piece-icon white"></div>
-                    <span class="player-name">白方</span>
+                    <span class="player-name">白棋</span>
                 </div>
                 <div class="player-status" id="white-status">等待中</div>
             </div>
@@ -108,7 +108,7 @@
         <div class="modal-content">
             <div class="modal-icon winner">🏆</div>
             <h2 id="winner-title">恭喜获胜！</h2>
-            <p id="winner-text">黑方获得胜利！</p>
+            <p id="winner-text">黑棋获得胜利！</p>
             <button class="modal-btn" id="modal-close-btn">再来一局</button>
         </div>
     </div>
@@ -118,7 +118,7 @@
         <div class="modal-content">
             <div class="modal-icon forbidden">⚠️</div>
             <h2>禁手！</h2>
-            <p id="forbidden-text">此处为禁手点，黑方不能落子</p>
+            <p id="forbidden-text">此处为禁手点，黑棋不能落子</p>
             <button class="modal-btn" id="forbidden-close-btn">知道了</button>
         </div>
     </div>
@@ -130,26 +130,23 @@
             <div class="rules-body">
                 <section>
                     <h3>基本规则</h3>
-                    <p>两人对弈，<strong>黑方先手</strong>，白方后手，双方轮流在棋盘交叉点上落子，每次一子。</p>
+                    <p>两人对弈，<strong>黑棋先手</strong>，白棋后手，双方轮流在棋盘交叉点上落子，每次一子。</p>
                 </section>
                 <section>
                     <h3>胜利条件</h3>
                     <p>率先在<strong>横、竖、斜</strong>任一方向上<strong>连成五子</strong>的一方获胜（五子连珠）。</p>
                 </section>
                 <section>
-                    <h3>禁手规则（可选）</h3>
-                    <p>本游戏支持禁手，可在「游戏设置」中开关。开启后，<strong>仅对黑方</strong>生效：</p>
+                    <h3>禁手规则</h3>
+                    <p>本游戏支持禁手，可在「游戏设置」中开关。开启后，<strong>仅对黑棋</strong>生效：</p>
                     <ul>
                         <li><strong>三三禁手</strong>：同时形成两个活三</li>
                         <li><strong>四四禁手</strong>：同时形成两个四</li>
                         <li><strong>长连禁手</strong>：形成六子或以上连线</li>
                     </ul>
-                    <p>黑方若下在禁手点，将判负或不允许落子（本游戏中会提示并禁止落子）。白方无禁手。</p>
+                    <p>黑棋若下在禁手点，将判负或不允许落子（本游戏中会提示并禁止落子）。白棋无禁手。</p>
                 </section>
-                <section>
-                    <h3>其他</h3>
-                    <p>棋盘为 15×15，坐标横向 A～O、纵向 1～15，支持局面代码（如 H8H7G7…）复制与粘贴还原。支持悔棋、重新开始与保存棋局图片。</p>
-                </section>
+             
             </div>
             <button class="modal-btn" id="rules-close-btn">知道了</button>
         </div>
