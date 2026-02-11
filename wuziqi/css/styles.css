@@ -145,36 +145,32 @@
             }
         }
         
-        /* 左侧面板：玩家 + 设置 */
+        /* 左侧面板：黑棋 + 操作 + 设置 + 局势分析 */
         .side-panel {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 200px;
+            width: 260px;
         }
 
-        /* 右侧面板：操作按钮 + 棋谱 */
+        .side-panel .controls-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .side-panel .controls-panel .btn {
+            margin-bottom: 0;
+            padding: 12px 14px;
+            font-size: 0.9rem;
+        }
+
+        /* 右侧面板：白棋 + 局面代码 */
         .right-panel {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 200px;
-        }
-
-        .right-panel .controls-panel {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 12px;
-        }
-
-        .right-panel .controls-panel .btn {
-            flex: 1 1 0;
-            min-width: 85px;
-            margin-bottom: 0;
-            padding: 12px 10px;
-            font-size: 0.88rem;
+            width: 260px;
         }
         
         .player-card {
@@ -271,18 +267,110 @@
         .settings-panel {
             background: linear-gradient(145deg, #ffffff, #f5f5f5);
             border-radius: 16px;
-            padding: 18px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            overflow: hidden;
         }
         
-        .settings-panel h3 {
+        .settings-panel-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
             font-size: 1rem;
-            color: #333;
-            margin-bottom: 15px;
             font-weight: 600;
-            text-align: center;
+            color: #333;
+            text-align: left;
+            transition: background 0.2s ease;
         }
         
+        .settings-panel-header:hover {
+            background: rgba(102, 126, 234, 0.08);
+        }
+        
+        .settings-panel-header:focus {
+            outline: none;
+        }
+        
+        .settings-panel-header:focus-visible {
+            outline: 2px solid rgba(102, 126, 234, 0.5);
+            outline-offset: 2px;
+        }
+        
+        .settings-panel-title {
+            flex: 1;
+        }
+        
+        .settings-panel-icon {
+            font-size: 0.75rem;
+            color: #666;
+            transition: transform 0.25s ease;
+        }
+        
+        .settings-panel:not(.collapsed) .settings-panel-icon {
+            transform: rotate(90deg);
+        }
+        
+        .settings-panel-body {
+            padding: 12px 18px 18px 18px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .settings-panel.collapsed .settings-panel-body {
+            max-height: 0;
+            padding: 0 18px;
+            margin: 0;
+        }
+        
+        .settings-panel:not(.collapsed) .settings-panel-body {
+            max-height: 800px;
+        }
+        
+        .mode-selector {
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 4px;
+        }
+        .mode-selector-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .mode-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mode-radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #333;
+            transition: background 0.2s ease;
+        }
+        .mode-radio-item:hover {
+            background: rgba(102, 126, 234, 0.08);
+        }
+        .mode-radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+            cursor: pointer;
+        }
+        .mode-radio-item input[type="radio"]:checked + span {
+            font-weight: 600;
+            color: #667eea;
+        }
         
         .toggle-container {
             display: flex;
@@ -1009,7 +1097,9 @@
             border-radius: 16px;
             padding: 15px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-            width: 200px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -1071,6 +1161,71 @@
             color: white;
         }
         
+        /* 局势分析展示（左侧面板内） */
+        .analysis-display-panel {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .analysis-display-panel h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        
+        .analysis-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .analysis-field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            font-size: 0.85rem;
+        }
+        
+        .analysis-field-line {
+            align-items: flex-start;
+        }
+        
+        .analysis-field-line .analysis-value {
+            text-align: right;
+            word-break: break-all;
+            line-height: 1.35;
+        }
+        
+        .analysis-label {
+            color: #555;
+            font-weight: 500;
+            flex-shrink: 0;
+            margin-right: 8px;
+        }
+        
+        .analysis-value {
+            color: #333;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.82rem;
+        }
+        
+        .analysis-line {
+            min-height: 1.2em;
+        }
+        
         /* 响应式 */
         @media (max-width: 1200px) {
             .position-code-panel {
@@ -1110,10 +1265,15 @@
                 justify-content: center;
             }
 
-            .right-panel .controls-panel,
+            .side-panel .controls-panel,
+            .side-panel .analysis-display-panel,
             .right-panel .position-code-panel {
                 flex: 1;
                 min-width: 160px;
+            }
+            
+            .analysis-display-panel {
+                width: auto;
             }
             
             .player-card, .settings-panel {
@@ -1249,7 +1409,8 @@
                 min-width: 140px;
             }
 
-            .right-panel .controls-panel,
+            .side-panel .controls-panel,
+            .side-panel .analysis-display-panel,
             .right-panel .position-code-panel {
                 min-width: 140px;
             }
@@ -1273,3 +1434,4 @@
                 min-height: 38px;
             }
         }
+        

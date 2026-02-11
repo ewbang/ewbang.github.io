@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>五子棋复盘研究</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        // 配置 COI Service Worker 参数
+        window.coi = {
+            shouldRegister: () => true,
+            shouldDeregister: () => false,
+            coepCredentialless: () => !(window.chrome || window.netscape),
+            doReload: () => window.location.reload(),
+            quiet: false
+        };
+    </script>
+    <script src="js/coi-serviceworker.min.js"></script>
 </head>
+
 <body>
-<header class="header">
+    <header class="header">
         <h1>五子棋复盘研究</h1>
         <p>Gobang - 享受策略与智慧的对弈</p>
         <button type="button" class="header-rules-btn" id="rules-btn">📖 规则说明</button>
     </header>
-    
+
     <div class="game-wrapper">
-        <!-- 左侧面板 -->
+        <!-- 左侧面板：黑棋 + 操作 + 设置 + 局势分析 -->
         <div class="side-panel">
             <div class="player-card black-card active" id="black-player">
                 <div class="player-header">
@@ -23,18 +36,30 @@
                 </div>
                 <div class="player-status thinking" id="black-status">思考中...</div>
             </div>
-            
-            <div class="player-card white-card" id="white-player">
-                <div class="player-header">
-                    <div class="player-piece-icon white"></div>
-                    <span class="player-name">白棋</span>
+       
+            <div class="settings-panel collapsed" id="settings-panel">
+                <button type="button" class="settings-panel-header" id="settings-panel-toggle" aria-expanded="false">
+                    <span class="settings-panel-title">⚙️ 游戏设置</span>
+                    <span class="settings-panel-icon" aria-hidden="true">▶</span>
+                </button>
+                <div class="settings-panel-body">
+                <div class="mode-selector" id="game-mode-group">
+                    <span class="mode-selector-label">🎮 对弈模式</span>
+                    <div class="mode-radio-group">
+                        <label class="mode-radio-item">
+                            <input type="radio" name="game-mode" value="pvp" checked>
+                            <span>双人对弈</span>
+                        </label>
+                        <label class="mode-radio-item">
+                            <input type="radio" name="game-mode" value="ai_black">
+                            <span>人机对弈（电脑先走）</span>
+                        </label>
+                        <label class="mode-radio-item">
+                            <input type="radio" name="game-mode" value="ai_white">
+                            <span>人机对弈（玩家先走）</span>
+                        </label>
+                    </div>
                 </div>
-                <div class="player-status" id="white-status">等待中</div>
-            </div>
-            
-            <div class="settings-panel">
-                <h3>⚙️ 游戏设置</h3>
-                
                 <div class="toggle-container">
                     <span class="toggle-label">🚫 禁手规则</span>
                     <label class="toggle-switch">
@@ -56,7 +81,6 @@
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
-                
                 <div class="color-selector">
                     <span class="color-selector-label">🎨 棋盘颜色</span>
                     <div class="color-options">
@@ -68,9 +92,39 @@
                         <div class="color-option color-bamboo" data-theme="bamboo" title="竹质色"></div>
                     </div>
                 </div>
+                </div>
+            </div>
+            <div class="analysis-display-panel">
+                <h3>🔍 局势分析</h3>
+                <div class="analysis-fields">
+                    <div class="analysis-field">
+                        <span class="analysis-label">深度</span>
+                        <span class="analysis-value" id="analysis-depth">0-0</span>
+                    </div>
+                    <div class="analysis-field">
+                        <span class="analysis-label">评估</span>
+                        <span class="analysis-value" id="analysis-eval">—</span>
+                    </div>
+                    <div class="analysis-field">
+                        <span class="analysis-label">速度</span>
+                        <span class="analysis-value" id="analysis-speed">0</span>
+                    </div>
+                    <div class="analysis-field">
+                        <span class="analysis-label">节点数</span>
+                        <span class="analysis-value" id="analysis-nodes">0</span>
+                    </div>
+                    <div class="analysis-field">
+                        <span class="analysis-label">使用时</span>
+                        <span class="analysis-value" id="analysis-time">0.0秒</span>
+                    </div>
+                    <div class="analysis-field analysis-field-line">
+                        <span class="analysis-label">路线</span>
+                        <span class="analysis-value analysis-line" id="analysis-line"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        
+
         <!-- 棋盘区域 -->
         <div class="board-container">
             <div class="board-wrapper">
@@ -83,13 +137,15 @@
             </div>
             <div class="coord-bottom" id="coord-bottom"></div>
         </div>
-        
-        <!-- 右侧：操作按钮 + 局面代码 -->
+
+        <!-- 右侧面板：白棋 + 局面代码 -->
         <div class="right-panel">
-            <div class="controls-panel">
-                <button class="btn btn-undo" id="undo-btn"><span>↶ 悔棋</span></button>
-                <button class="btn btn-reset" id="reset-btn"><span>🔄 重新开始</span></button>
-                <button class="btn btn-save" id="save-btn"><span>📸 保存图片</span></button>
+            <div class="player-card white-card" id="white-player">
+                <div class="player-header">
+                    <div class="player-piece-icon white"></div>
+                    <span class="player-name">白棋</span>
+                </div>
+                <div class="player-status" id="white-status">等待中</div>
             </div>
             <div class="position-code-panel">
                 <h3>📋 局面代码</h3>
@@ -100,9 +156,15 @@
                     <button type="button" class="btn btn-apply-code" id="apply-code-btn"><span>还原棋局</span></button>
                 </div>
             </div>
+
+            <div class="controls-panel">
+                <button class="btn btn-undo" id="undo-btn"><span>↶ 悔棋</span></button>
+                <button class="btn btn-reset" id="reset-btn"><span>🔄 重新开始</span></button>
+                <button class="btn btn-save" id="save-btn"><span>📸 保存图片</span></button>
+            </div>
         </div>
     </div>
-    
+
     <!-- 获胜弹窗 -->
     <div class="modal-overlay" id="winner-modal">
         <div class="modal-content">
@@ -112,7 +174,7 @@
             <button class="modal-btn" id="modal-close-btn">再来一局</button>
         </div>
     </div>
-    
+
     <!-- 禁手提示弹窗 -->
     <div class="modal-overlay" id="forbidden-modal">
         <div class="modal-content">
@@ -122,7 +184,7 @@
             <button class="modal-btn" id="forbidden-close-btn">知道了</button>
         </div>
     </div>
-    
+
     <!-- 规则说明弹窗 -->
     <div class="modal-overlay" id="rules-modal">
         <div class="modal-content modal-content-rules">
@@ -146,14 +208,15 @@
                     </ul>
                     <p>黑棋若下在禁手点，将判负或不允许落子（本游戏中会提示并禁止落子）。白棋无禁手。</p>
                 </section>
-             
+
             </div>
             <button class="modal-btn" id="rules-close-btn">知道了</button>
         </div>
     </div>
-    
+
     <div class="toast" id="toast"></div>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

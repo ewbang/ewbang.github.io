@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapfi 五子棋引擎</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; display: flex; height: 100vh; }
+  #sidebar { width: 380px; display: flex; flex-direction: column; background: #16213e; padding: 16px; gap: 12px; }
+  #sidebar h2 { color: #e94560; font-size: 20px; }
+  #log-container { flex: 1; overflow-y: auto; background: #0f0f23; border-radius: 6px; padding: 10px; font-family: 'Consolas', monospace; font-size: 13px; line-height: 1.5; }
+  #log-container .stdout { color: #a8d8ea; }
+  #log-container .stderr { color: #e94560; }
+  #log-container .cmd { color: #53d769; }
+  #cmd-input-wrap { display: flex; gap: 6px; }
+  #cmd-input { flex: 1; padding: 8px 12px; border: none; border-radius: 6px; background: #0f3460; color: #eee; font-family: 'Consolas', monospace; font-size: 14px; outline: none; }
+  #cmd-input:focus { box-shadow: 0 0 0 2px #e94560; }
+  button { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: .15s; }
+  button:hover { filter: brightness(1.15); }
+  .btn-send { background: #e94560; color: #fff; }
+  .btn-action { background: #0f3460; color: #a8d8ea; font-size: 13px; }
+  .btn-action:hover { background: #1a4a8a; }
+  #actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  #board-area { flex: 1; display: flex; align-items: center; justify-content: center; }
+  canvas { background: #dcb35c; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,.4); }
+  #status { font-size: 14px; padding: 6px 10px; border-radius: 6px; background: #0f3460; text-align: center; }
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h2>Rapfi 五子棋引擎</h2>
+  <div id="status">正在加载引擎...</div>
+  <div id="actions">
+    <button class="btn-action" onclick="quickCmd('ABOUT')">ABOUT</button>
+    <button class="btn-action" onclick="startGame(false)">新游戏 (你先手)</button>
+    <button class="btn-action" onclick="startGame(true)">新游戏 (AI先手)</button>
+    <button class="btn-action" onclick="doTakeback()">悔棋</button>
+    <button class="btn-action" onclick="quickCmd('RESTART')">重新开始</button>
+    <button class="btn-action" onclick="quickCmd('END')">END</button>
+  </div>
+  <div id="log-container"></div>
+  <div id="cmd-input-wrap">
+    <input id="cmd-input" placeholder="输入 Gomocup 命令..." />
+    <button class="btn-send" onclick="sendInput()">发送</button>
+  </div>
+</div>
+
+<div id="board-area">
+  <canvas id="board" width="640" height="640"></canvas>
+</div>
+
+<script>
+// ============ State ============
+const BOARD_SIZE = 15;
+const CELL = 40;
+const MARGIN = 20;
+let stones = [];       // [{x, y, color: 'black'|'white'}, ...]
+let currentTurn = 'black';
+let engineReady = false;
+let engineThinking = false;
+let boardStarted = false;
+
+// ============ Canvas Drawing ============
+const canvas = document.getElementById('board');
+const ctx = canvas.getContext('2d');
+canvas.width = canvas.height = MARGIN * 2 + CELL * (BOARD_SIZE - 1);
+
+function drawBoard() {
+  const W = canvas.width;
+  ctx.fillStyle = '#dcb35c';
+  ctx.fillRect(0, 0, W, W);
+
+  ctx.strokeStyle = '#333';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < BOARD_SIZE; i++) {
+    const p = MARGIN + i * CELL;
+    ctx.beginPath(); ctx.moveTo(MARGIN, p); ctx.lineTo(W - MARGIN, p); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(p, MARGIN); ctx.lineTo(p, W - MARGIN); ctx.stroke();
+  }
+
+  // Star points
+  const stars = BOARD_SIZE === 15 ? [[3,3],[3,11],[7,7],[11,3],[11,11]] :
+                BOARD_SIZE === 19 ? [[3,3],[3,9],[3,15],[9,3],[9,9],[9,15],[15,3],[15,9],[15,15]] : [[Math.floor(BOARD_SIZE/2), Math.floor(BOARD_SIZE/2)]];
+  ctx.fillStyle = '#333';
+  for (const [r, c] of stars) {
+    ctx.beginPath();
+    ctx.arc(MARGIN + c * CELL, MARGIN + r * CELL, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Stones
+  stones.forEach((s, idx) => {
+    const cx = MARGIN + s.x * CELL;
+    const cy = MARGIN + s.y * CELL;
+    ctx.beginPath();
+    ctx.arc(cx, cy, CELL * 0.43, 0, Math.PI * 2);
+    const grad = ctx.createRadialGradient(cx - 4, cy - 4, 2, cx, cy, CELL * 0.43);
+    if (s.color === 'black') {
+      grad.addColorStop(0, '#555'); grad.addColorStop(1, '#000');
+    } else {
+      grad.addColorStop(0, '#fff'); grad.addColorStop(1, '#ccc');
+    }
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.strokeStyle = s.color === 'black' ? '#000' : '#999';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Number label
+    ctx.fillStyle = s.color === 'black' ? '#fff' : '#000';
+    ctx.font = 'bold 13px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(idx + 1, cx, cy);
+  });
+
+  // Last move marker
+  if (stones.length > 0) {
+    const last = stones[stones.length - 1];
+    const cx = MARGIN + last.x * CELL;
+    const cy = MARGIN + last.y * CELL;
+    ctx.strokeStyle = '#e94560';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, CELL * 0.47, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+}
+
+// ============ Click Handler ============
+canvas.addEventListener('click', (e) => {
+  if (!engineReady || engineThinking || !boardStarted) return;
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+  const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+  const x = Math.round((mx - MARGIN) / CELL);
+  const y = Math.round((my - MARGIN) / CELL);
+  if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) return;
+  if (stones.some(s => s.x === x && s.y === y)) return;
+
+  // Place player stone
+  stones.push({ x, y, color: currentTurn });
+  currentTurn = currentTurn === 'black' ? 'white' : 'black';
+  drawBoard();
+
+  // Send TURN command: x,y
+  engineThinking = true;
+  setStatus('引擎思考中...');
+  sendCommand(`TURN ${x},${y}`);
+});
+
+// ============ Engine Communication ============
+const logEl = document.getElementById('log-container');
+
+function appendLog(text, cls) {
+  const div = document.createElement('div');
+  div.className = cls;
+  div.textContent = text;
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function setStatus(msg) {
+  document.getElementById('status').textContent = msg;
+}
+
+function sendCommand(cmd) {
+  appendLog('> ' + cmd, 'cmd');
+  if (window.rapfiModule) {
+    window.rapfiModule.sendCommand(cmd);
+  }
+}
+
+function quickCmd(cmd) {
+  sendCommand(cmd);
+}
+
+function sendInput() {
+  const input = document.getElementById('cmd-input');
+  const cmd = input.value.trim();
+  if (!cmd) return;
+  sendCommand(cmd);
+  input.value = '';
+}
+
+document.getElementById('cmd-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') sendInput();
+});
+
+function startGame(aiFirst) {
+  stones = [];
+  currentTurn = 'black';
+  boardStarted = true;
+  engineThinking = false;
+  drawBoard();
+  sendCommand('START 15');
+  sendCommand('INFO timeout_turn 10000');
+  if (aiFirst) {
+    engineThinking = true;
+    setStatus('Engine thinking...');
+    sendCommand('BEGIN');
+  } else {
+    setStatus('游戏开始，点击棋盘落子。');
+  }
+}
+
+function doTakeback() {
+  if (stones.length >= 2) {
+    stones.pop();
+    stones.pop();
+    drawBoard();
+  } else if (stones.length === 1) {
+    stones.pop();
+    currentTurn = 'black';
+    drawBoard();
+  }
+  sendCommand('TAKEBACK');
+  engineThinking = false;
+  setStatus('已悔棋，轮到你了。');
+}
+
+function handleEngineOutput(line) {
+  appendLog(line, 'stdout');
+
+  // Parse AI move response (format: "x,y" as a single line)
+  const moveMatch = line.match(/^\s*(\d+)\s*,\s*(\d+)\s*$/);
+  if (moveMatch && engineThinking) {
+    const x = parseInt(moveMatch[1]);
+    const y = parseInt(moveMatch[2]);
+    stones.push({ x, y, color: currentTurn });
+    currentTurn = currentTurn === 'black' ? 'white' : 'black';
+    engineThinking = false;
+    drawBoard();
+    setStatus(`AI 落子 (${x}, ${y})，轮到你了！`);
+    return;
+  }
+
+  if (line.startsWith('OK')) {
+    setStatus('引擎就绪。');
+  }
+  if (line.startsWith('MESSAGE')) {
+    // Just display, already logged
+  }
+}
+
+// ============ Load WASM Module ============
+function loadEngine() {
+  // Check if SharedArrayBuffer is available
+  if (typeof SharedArrayBuffer === 'undefined') {
+    appendLog('[警告] SharedArrayBuffer 不可用，正在加载补丁...', 'stderr');
+    // Load coi-serviceworker for SharedArrayBuffer polyfill
+    const polyfillScript = document.createElement('script');
+    polyfillScript.src = './coi-serviceworker.min.js';
+    polyfillScript.onload = () => {
+      appendLog('[信息] 补丁已加载，正在刷新页面...', 'cmd');
+      // The polyfill requires a page reload
+      setTimeout(() => window.location.reload(), 500);
+    };
+    polyfillScript.onerror = () => {
+      appendLog('[错误] 加载补丁失败，请使用支持 COOP/COEP 头部的 HTTP 服务器。', 'stderr');
+      setStatus('加载补丁失败，请查看控制台详情。');
+    };
+    document.head.appendChild(polyfillScript);
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src = 'rapfi-multi-simd128.js';
+  script.onload = () => {
+    Rapfi({
+      onReceiveStdout: (line) => handleEngineOutput(line),
+      onReceiveStderr: (line) => appendLog('[错误] ' + line, 'stderr'),
+      onExit: (code) => {
+        appendLog(`[引擎退出，代码 ${code}]`, 'stderr');
+        engineReady = false;
+        setStatus('引擎已退出。');
+      },
+    }).then((module) => {
+      window.rapfiModule = module;
+      engineReady = true;
+      setStatus('引擎加载完成！点击"新游戏"开始。');
+      appendLog('[引擎已初始化]', 'cmd');
+    }).catch((err) => {
+      appendLog('[加载引擎失败: ' + err + ']', 'stderr');
+      setStatus('加载引擎失败。');
+    });
+  };
+  script.onerror = () => {
+    appendLog('[错误] 加载 rapfi-multi-simd128.js 失败', 'stderr');
+    setStatus('加载引擎脚本失败。');
+  };
+  document.body.appendChild(script);
+}
+
+// ============ Init ============
+drawBoard();
+loadEngine();
+</script>
+</body>
+</html>
