@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --primary: #2563eb;
+            --primary-soft: #dbeafe;
+            --text-main: #0f172a;
+            --text-secondary: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            --radius: 14px;
+        }
+
+        body {
+            background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 240px);
+            color: var(--text-main);
+            padding-bottom: 32px;
+        }
+
+        .page-container {
+            max-width: 1400px;
+            margin: 28px auto;
+            padding: 0 12px;
+        }
+
+        .top-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .actions-group,
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn {
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-secondary {
+            color: #334155;
+            border-color: #cbd5e1;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 10px;
+            border-color: #cbd5e1;
+        }
+
+        .table-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            min-height: 220px;
+        }
+
+        .table {
+            margin: 0;
+            table-layout: fixed;
+        }
+
+        .table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: #1e293b;
+            color: #f8fafc;
+            font-size: 0.9rem;
+            border-color: #334155;
+        }
+
+        .table th,
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+            padding: 10px 8px;
+            border-color: #e2e8f0;
+        }
+
+        .table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        .id-column { width: 90px; min-width: 90px; }
+        .url-column { text-align: left !important; min-width: 260px; }
+        .type-column { width: 130px; min-width: 130px; }
+        .name-column { width: 160px; min-width: 160px; }
+        .desc-column { width: 240px; min-width: 240px; }
+
+        .row-actions {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .drag-handle {
+            cursor: move;
+            color: #94a3b8;
+            margin-right: 6px;
+        }
+
+        .drag-handle:hover { color: #475569; }
+        .drag-handle::before { content: "⋮⋮"; }
+
+        tr.dragging { opacity: 0.45; }
+        tr.drag-over { border-top: 2px solid var(--primary); }
+
+        .pagination-wrap {
+            margin-top: 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 8px 10px;
+        }
+
+        .pagination .page-link {
+            border-radius: 8px;
+            margin: 0 2px;
+            color: #1e293b;
+        }
+
+        .pagination .page-item.active .page-link {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .alert-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .modal-content {
+            border: 0;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+        }
+
+        .modal-header,
+        .modal-footer {
+            border-color: #e2e8f0;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.28);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1080;
+            backdrop-filter: blur(1px);
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        @media (max-width: 900px) {
+            .toolbar { align-items: stretch; }
+            .filter-group { width: 100%; }
+            .filter-group .form-control,
+            .filter-group .form-select { min-width: 120px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container container-fluid">
+    <div id="alertStack" class="alert-stack">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="top-card">
+        <h2 class="page-title">数据记录管理</h2>
+        <p class="page-subtitle">第 {{ page }} 页 / 共 {{ total_pages }} 页，当前总计 {{ total_items }} 条数据</p>
+    </div>
+
+    <div class="top-card toolbar">
+        <div class="actions-group">
+            <button type="button" class="btn btn-success" onclick="showAddModal()">添加新记录</button>
+            <a href="/export" class="btn btn-primary">导出数据</a>
+        </div>
+
+        <form method="get" class="filter-group">
+            <input type="text" name="search" value="{{ search or '' }}" placeholder="输入关键词搜索..." class="form-control">
+            <select name="type" class="form-select">
+                <option value="">所有类型</option>
+                {% for t in type_options %}
+                    <option value="{{ t }}" {% if t == type_filter %}selected{% endif %}>{{ type_mapping.get(t, t) }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">筛选</button>
+            <a href="/" class="btn btn-outline-secondary">重置</a>
+        </form>
+    </div>
+
+    <div class="table-card">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                <tr>
+                    {% for col in columns %}
+                        <th {% if col == 'id' %}class="id-column"{% endif %}
+                            {% if col == 'url' %}class="url-column"{% endif %}
+                            {% if col == 'type' %}class="type-column"{% endif %}
+                            {% if col == 'name' %}class="name-column"{% endif %}
+                            {% if col == 'desc' %}class="desc-column"{% endif %}>
+                            {{ col }}
+                        </th>
+                    {% endfor %}
+                    <th style="width: 140px;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in rows %}
+                    <tr data-id="{{ row[0] }}">
+                        <td class="id-column"><span class="drag-handle"></span>{{ row[0] }}</td>
+                        {% for cell in row[1:] %}
+                            <td {% if columns[loop.index0 + 1] == 'url' %}class="url-column"{% endif %}
+                                {% if columns[loop.index0 + 1] == 'type' %}class="type-column"{% endif %}
+                                {% if columns[loop.index0 + 1] == 'name' %}class="name-column"{% endif %}
+                                {% if columns[loop.index0 + 1] == 'desc' %}class="desc-column"{% endif %}>
+                                {% if columns[loop.index0 + 1] == 'url' %}
+                                    <a href="{{ cell }}" target="_blank" rel="noopener noreferrer">{{ cell }}</a>
+                                {% elif columns[loop.index0 + 1] == 'type' %}
+                                    <span class="badge text-bg-light border">{{ type_mapping.get(cell, cell) }}</span>
+                                {% else %}
+                                    {{ cell }}
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                        <td>
+                            <div class="row-actions">
+                                <button class="btn btn-sm btn-warning" onclick="editRecord('{{ row[0] }}')">编辑</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteRecord('{{ row[0] }}')">删除</button>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="pagination-wrap">
+        <nav aria-label="分页导航">
+            <ul class="pagination justify-content-center mb-0">
+                {% if page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="/?page={{ page - 1 }}&search={{ search }}&type={{ type_filter }}">上一页</a>
+                    </li>
+                {% endif %}
+
+                {% for p in range(1, total_pages + 1) %}
+                    <li class="page-item {% if p == page %}active{% endif %}">
+                        <a class="page-link" href="/?page={{ p }}&search={{ search }}&type={{ type_filter }}">{{ p }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if page < total_pages %}
+                    <li class="page-item">
+                        <a class="page-link" href="/?page={{ page + 1 }}&search={{ search }}&type={{ type_filter }}">下一页</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- 添加记录模态框 -->
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加新记录</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="/add" id="addForm">
+                <div class="modal-body">
+                    {% for col in columns %}
+                        {% if col != 'id' %}
+                            <div class="mb-3">
+                                <label for="add_{{ col }}" class="form-label">{{ col }}</label>
+                                {% if col == 'type' %}
+                                    <select name="{{ col }}" class="form-select" id="add_{{ col }}" required>
+                                        {% for t in type_options %}
+                                            <option value="{{ t }}">{{ type_mapping.get(t, t) }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% else %}
+                                    <input type="text" name="{{ col }}" class="form-control" id="add_{{ col }}" required>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="page" value="{{ page }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">添加</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑记录模态框 -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">编辑记录</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" id="editForm">
+                <div class="modal-body">
+                    {% for col in columns %}
+                        {% if col != 'id' %}
+                            <div class="mb-3">
+                                <label for="edit_{{ col }}" class="form-label">{{ col }}</label>
+                                {% if col == 'type' %}
+                                    <select name="{{ col }}" class="form-select" id="edit_{{ col }}" required>
+                                        {% for t in type_options %}
+                                            <option value="{{ t }}">{{ type_mapping.get(t, t) }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% else %}
+                                    <input type="text" name="{{ col }}" class="form-control" id="edit_{{ col }}" required>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <input type="hidden" name="page" value="{{ page }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="editSubmitBtn">保存</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-card">
+        <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+        <span>正在处理，请稍候...</span>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const alertStack = document.getElementById('alertStack');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    function setLoading(loading) {
+        loadingOverlay.classList.toggle('active', loading);
+    }
+
+    function showToastAlert(type, message, autoHide = true) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+        alertDiv.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        alertStack.prepend(alertDiv);
+
+        if (autoHide) {
+            setTimeout(() => {
+                const instance = bootstrap.Alert.getOrCreateInstance(alertDiv);
+                instance.close();
+            }, 2600);
+        }
+    }
+
+    function showAddModal() {
+        new bootstrap.Modal(document.getElementById('addModal')).show();
+    }
+
+    function editRecord(id) {
+        setLoading(true);
+        fetch(`/get/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                const form = document.getElementById('editForm');
+                form.action = `/edit/${id}`;
+
+                Object.keys(data).forEach(key => {
+                    const input = document.getElementById(`edit_${key}`);
+                    if (input) input.value = data[key];
+                });
+
+                new bootstrap.Modal(document.getElementById('editModal')).show();
+            })
+            .catch(() => {
+                showToastAlert('danger', '读取记录失败，请稍后重试。');
+            })
+            .finally(() => setLoading(false));
+    }
+
+    document.getElementById('editForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const submitBtn = document.getElementById('editSubmitBtn');
+        const oldText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '保存中...';
+        setLoading(true);
+
+        const formData = new FormData(this);
+        const id = this.action.split('/').pop();
+
+        fetch(`/edit/${id}`, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+
+                    const row = document.querySelector(`tr[data-id="${id}"]`);
+                    if (row) {
+                        const cells = row.querySelectorAll('td');
+                        Object.keys(data.record).forEach((key, index) => {
+                            if (index < cells.length - 1) {
+                                if (key === 'url') {
+                                    cells[index].innerHTML = `<a href="${data.record[key]}" target="_blank" rel="noopener noreferrer">${data.record[key]}</a>`;
+                                } else if (key === 'type') {
+                                    const label = data.type_mapping[data.record[key]] || data.record[key];
+                                    cells[index].innerHTML = `<span class="badge text-bg-light border">${label}</span>`;
+                                } else {
+                                    cells[index].textContent = data.record[key];
+                                }
+                            }
+                        });
+                    }
+
+                    showToastAlert('success', data.message || '保存成功');
+                } else {
+                    showToastAlert('danger', data.message || '保存失败');
+                }
+            })
+            .catch(() => {
+                showToastAlert('danger', '网络异常，保存失败，请稍后重试。');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = oldText;
+                setLoading(false);
+            });
+    });
+
+    function deleteRecord(id) {
+        if (!confirm('确定要删除这条记录吗？')) return;
+
+        setLoading(true);
+        fetch(`/delete/${id}`, { method: 'DELETE' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const row = document.querySelector(`tr[data-id="${id}"]`);
+                    if (row) {
+                        row.style.transition = 'opacity .2s ease';
+                        row.style.opacity = '0';
+                        setTimeout(() => row.remove(), 220);
+                    }
+                    showToastAlert('success', data.message || '删除成功');
+                } else {
+                    showToastAlert('danger', data.message || '删除失败');
+                }
+            })
+            .catch(() => {
+                showToastAlert('danger', '网络异常，删除失败，请稍后重试。');
+            })
+            .finally(() => setLoading(false));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const tbody = document.querySelector('tbody');
+        let draggedRow = null;
+
+        if (!tbody) return;
+
+        tbody.addEventListener('dragstart', function (e) {
+            const tr = e.target.closest('tr');
+            if (!tr) return;
+            draggedRow = tr;
+            draggedRow.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        });
+
+        tbody.addEventListener('dragend', function () {
+            if (draggedRow) {
+                draggedRow.classList.remove('dragging');
+                draggedRow = null;
+            }
+        });
+
+        tbody.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            const targetRow = e.target.closest('tr');
+            if (targetRow && targetRow !== draggedRow) {
+                targetRow.classList.add('drag-over');
+            }
+        });
+
+        tbody.addEventListener('dragleave', function (e) {
+            const targetRow = e.target.closest('tr');
+            if (targetRow) targetRow.classList.remove('drag-over');
+        });
+
+        tbody.addEventListener('drop', function (e) {
+            e.preventDefault();
+            const targetRow = e.target.closest('tr');
+            if (!targetRow || !draggedRow || targetRow === draggedRow) return;
+
+            targetRow.classList.remove('drag-over');
+            setLoading(true);
+
+            fetch('/swap_positions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id1: draggedRow.dataset.id,
+                    id2: targetRow.dataset.id
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.reload();
+                    } else {
+                        showToastAlert('danger', data.message || '排序更新失败');
+                    }
+                })
+                .catch(() => {
+                    showToastAlert('danger', '网络异常，排序更新失败');
+                })
+                .finally(() => setLoading(false));
+        });
+
+        document.querySelectorAll('tbody tr').forEach(row => row.setAttribute('draggable', 'true'));
+
+        setTimeout(() => {
+            document.querySelectorAll('#alertStack .alert').forEach(alertEl => {
+                const instance = bootstrap.Alert.getOrCreateInstance(alertEl);
+                instance.close();
+            });
+        }, 2800);
+    });
+</script>
+</body>
+</html>

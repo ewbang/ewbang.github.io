@@ -1440,40 +1440,10 @@
         "url": "https://packages.gitlab.com/gitlab/gitlab-ce"
     },
     {
-        "id": 305,
-        "type": 8,
-        "text": "awesome-cpp",
-        "url": "https://github.com/fffaraz/awesome-cpp"
-    },
-    {
-        "id": 306,
-        "type": 8,
-        "text": "awesome-python",
-        "url": "https://github.com/vinta/awesome-python"
-    },
-    {
-        "id": 307,
-        "type": 8,
-        "text": "awesome-mac",
-        "url": "https://github.com/jaywcjlove/awesome-mac"
-    },
-    {
-        "id": 308,
-        "type": 8,
-        "text": "Awesome-Linux-Software",
-        "url": "https://github.com/luong-komorebi/Awesome-Linux-Software"
-    },
-    {
         "id": 309,
         "type": 8,
         "text": "linux-command",
         "url": "https://github.com/jaywcjlove/linux-command"
-    },
-    {
-        "id": 310,
-        "type": 8,
-        "text": "reference",
-        "url": "https://github.com/jaywcjlove/reference"
     },
     {
         "id": 311,
@@ -1482,40 +1452,16 @@
         "url": "https://github.com/jaywcjlove/nginx-tutorial"
     },
     {
-        "id": 312,
-        "type": 8,
-        "text": "rustfs",
-        "url": "https://github.com/rustfs/rustfs"
-    },
-    {
         "id": 313,
         "type": 8,
         "text": "JavaGuide",
         "url": "https://github.com/Snailclimb/JavaGuide"
     },
     {
-        "id": 314,
-        "type": 8,
-        "text": "cgohlke",
-        "url": "https://www.cgohlke.com/"
-    },
-    {
         "id": 315,
         "type": 8,
         "text": "OpenCV",
         "url": "https://github.com/opencv"
-    },
-    {
-        "id": 316,
-        "type": 8,
-        "text": "obs-studio",
-        "url": "https://github.com/obsproject/obs-studio"
-    },
-    {
-        "id": 317,
-        "type": 8,
-        "text": "github中文社区",
-        "url": "https://www.github-zh.com/"
     },
     {
         "id": 318,
@@ -1548,12 +1494,6 @@
         "url": "https://github.com/langgenius/dify"
     },
     {
-        "id": 323,
-        "type": 8,
-        "text": "PowerVim",
-        "url": "https://github.com/youngyangyang04/PowerVim"
-    },
-    {
         "id": 324,
         "type": 8,
         "text": "redis-windows",
@@ -1566,33 +1506,33 @@
         "url": "https://github.com/putyy/res-downloader"
     },
     {
-        "id": 326,
+        "id": 331,
         "type": 8,
-        "text": "Machine-Learning-Tutorials",
-        "url": "https://github.com/ujjwalkarn/Machine-Learning-Tutorials"
+        "text": "openclaw",
+        "url": "https://github.com/openclaw/openclaw"
     },
     {
-        "id": 327,
+        "id": 332,
         "type": 8,
-        "text": "devops-exercises",
-        "url": "https://github.com/bregman-arie/devops-exercises"
+        "text": "若依",
+        "url": "https://doc.ruoyi.vip/"
     },
     {
-        "id": 328,
+        "id": 333,
         "type": 8,
-        "text": "ChatGPT",
-        "url": "https://github.com/lencx/ChatGPT/releases"
+        "text": "FastAdmin",
+        "url": "https://gitee.com/fastadminnet/fastadmin"
     },
     {
-        "id": 329,
+        "id": 334,
         "type": 8,
-        "text": "Pake",
-        "url": "https://github.com/tw93/Pake"
+        "text": "1Panel",
+        "url": "https://gitee.com/fit2cloud-feizhiyun/1Panel"
     },
     {
-        "id": 330,
+        "id": 335,
         "type": 8,
-        "text": "stock",
-        "url": "https://github.com/myhhub/stock"
+        "text": "docsify",
+        "url": "https://gitee.com/docsifyjs/docsify"
     }
 ]
